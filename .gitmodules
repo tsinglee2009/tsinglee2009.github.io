@@ -1,4 +1,0 @@
-[submodule "hexo"]
-	path = hexo
-	url = git@github.com:tsinglee2009/blog.git
-	branch = main
