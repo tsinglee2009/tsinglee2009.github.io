@@ -94,8 +94,13 @@ if [ "${confirm}" = "y" ]; then
 	# 执行提交
 	cd "${cfg_root}"
 	git add "${dir_dst}"/"${dst_name}"/*
-	git commit -m "distribute '${dst_folder}/${dst_name}'"
+	git commit -m "deploy '${dst_folder}/${dst_name}'"
 	git push origin main
+
+	# 获取当前目录下最新git提交的一条日志
+	latest_log=`git log --oneline -1`
+
+	echo "deploy '${dst_folder}/${dst_name}' ref: '${latest_log}'"
 
 	cd "${dir_src}"
 	
