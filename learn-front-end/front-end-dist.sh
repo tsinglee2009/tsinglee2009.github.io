@@ -18,7 +18,8 @@ echo '> current workspace path' : ${dir_src}
 # dst_name=${dst_name%%.git}
 # echo "> current project git name : " ${dst_name}
 # 
-dst_folder=`echo "${dir_src}" | egrep -o "heima2022(.+?)*"`
+dst_folder=`echo "${dir_src}" | egrep -o "heima2022.*"`
+
 # fix
 dst_name="${dst_folder##*/}"
 dst_folder="${dst_folder%/*}"
@@ -26,11 +27,13 @@ dst_folder="${dst_folder:10}"
 
 if [ -z "${dst_folder}" ] || [ -z "${dst_name}" ]; then
 	echo '>> exit: current workspace is not a learn-front-end/itheima2022 sub folder'
+	echo ''
 	exit
 fi
 
 if [ ! -e "${dir_src}/index.html" ]; then
 	echo '>> exit: index.html not eixsts'
+	echo ''
 	exit
 fi
 
@@ -89,16 +92,18 @@ if [ "${confirm}" = "y" ]; then
 	cp -rf "${dir_src}" "${dir_dst}"/"${dst_name}"
 
 	# 执行提交
-	# cd "${cfg_root}"
-	# git add "${dir_dst}"/"${dst_name}"/*
-	# git commit -m "distribute '${dst_name}'"
-	# git push origin main
+	cd "${cfg_root}"
+	git add "${dir_dst}"/"${dst_name}"/*
+	git commit -m "distribute '${dir_dst}/${dst_name}'"
+	git push origin main
 
 	cd "${dir_src}"
 	
 	echo ''
 	echo distribute ${dst_folder}/${dst_name} completed
+	echo ''
 else
 	echo ''
 	echo 'copy canceled, exit ...'
+	echo ''
 fi
