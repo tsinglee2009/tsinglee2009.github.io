@@ -94,7 +94,7 @@ if [ "${confirm}" = "y" ]; then
 	# 执行提交
 	cd "${cfg_root}"
 	git add "${dir_dst}"/"${dst_name}"/*
-	git commit -m "distribute '${dir_dst}/${dst_name}'"
+	git commit -m "distribute '${dst_folder}/${dst_name}'"
 	git push origin main
 
 	cd "${dir_src}"
