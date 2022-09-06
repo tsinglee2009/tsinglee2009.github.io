@@ -490,6 +490,10 @@
     width: 1000px;
 }
 
+.fresh_goods .bd .right div {
+    color: #333;
+}
+
 .fresh_goods .bd .left img {
     width: 240px;
 }
@@ -605,6 +609,7 @@
     font-weight: normal;
     font-style: normal;
     margin-right: 24px;
+    color: #333;
 }
 .topic_goods .bd .bottom b::before {
     content: '';
@@ -619,6 +624,7 @@
 .topic_goods .bd .bottom span {
     font-size: 14px;
     margin-right: 24px;
+    color: #333;
 }
 .topic_goods .bd .bottom span::before {
     content: '';
@@ -635,6 +641,7 @@
     font-size: 14px;
     font-weight: normal;
     font-style: normal;
+    color: #333;
 }
 .topic_goods .bd .bottom i::before {
     content: '';
