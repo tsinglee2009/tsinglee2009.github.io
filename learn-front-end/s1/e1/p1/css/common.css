@@ -1,0 +1,177 @@
+/* 通用文字 */
+
+body {
+    font-size: 16px;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 浮动 */
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+
+/* 常用色 */
+
+.color_ff {
+    background-color: #fff;
+}
+
+.color_f5 {
+    background-color: #f5f5f5;
+}
+
+.color_33 {
+    background-color: #333;
+}
+
+/* 版心 */
+
+.wrapper {
+    width: 1240px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* 快捷菜单 */
+
+.shortcut {
+    height: 52px;
+    background-color: #333;
+}
+
+.shortcut ul {
+    line-height: 52px;
+    font-size: 14px;
+    color: #666;
+}
+
+.shortcut li {
+    display: inline-block;
+    margin: 0 9px;
+}
+
+.shortcut li:last-child {
+    margin-left: 12px;
+}
+
+.shortcut li:last-child a::before {
+    content: '';
+    display: inline-block;
+    width: 11px;
+    height: 20px;
+    margin-right: 8px;
+    background-image: url('../images/sprites.png');
+    background-position: -160px -70px;
+    vertical-align: middle;
+}
+
+.shortcut a {
+    font-size: 14px;
+    color: #dcdcdc;
+}
+
+/* 底部信息 */
+
+.com_bottom {
+    height: 343px;
+    padding-top: 60px;
+    background-color: #333;
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+}
+
+.com_bottom ul {
+    margin-bottom: 54px;
+    font-size: 28px;
+    color: #fff;
+}
+
+.com_bottom li {
+    display: inline-block;
+}
+
+.com_bottom li::before {
+    content: '';
+    display: inline-block;
+    margin-right: 18px;
+    width: 58px;
+    height: 58px;
+    background-image: url('../images/sprites.png');
+    vertical-align: middle;
+}
+
+.com_bottom li:nth-child(1)::before {
+    background-position: 0 0;
+}
+
+.com_bottom li:nth-child(2)::before {
+    margin-left: 300px;
+    background-position: -130px 0;
+}
+
+.com_bottom li:nth-child(3)::before {
+    margin-left: 300px;
+    background-position: -65px 0;
+}
+
+.com_bottom b {
+    display: block;
+    height: 1px;
+    width: 1390px;
+    margin: 0 auto;
+    background-color: #434343;
+}
+
+.com_bottom a:nth-child(n+2)::before {
+    content: '|';
+    display: inline-block;
+    margin-left: 4px;
+    margin-right: 10px;
+}
+
+.com_bottom a {
+    display: inline-block;
+    font-style: normal;
+    color: #999;
+}
+
+.com_bottom .links {
+    padding-top: 42px;
+    margin-bottom: 20px;
+}
+
+/* 通用样式 */
+
+h2 {
+    float: left;
+    left: 0;
+    top: 0;
+    font-size: 29px;
+    font-weight: 400;
+}
+
+.h2_after {
+    float: left;
+    margin-left: 34px;
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #999;
+}
+
+.h2_end {
+    float: right;
+    right: 0;
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: normal;
+    color: #999;
+}
