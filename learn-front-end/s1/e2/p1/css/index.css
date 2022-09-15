@@ -50,6 +50,10 @@
   -webkit-background-clip: text !important;
   background-clip: text !important;
   background-size: 200% 100%;
+  -o-animation: hot-mask-animation 1s infinite linear;
+  -ms-animation: hot-mask-animation 1s infinite linear;
+  -moz-animation: hot-mask-animation 1s infinite linear;
+  -webkit-animation: hot-mask-animation 1s infinite linear;
   animation: hot-mask-animation 1s infinite linear;
 }
 .main_navbar .container .navbar-right li a.hot i {
@@ -534,7 +538,18 @@ footer .container .qrcode div p {
   }
 }
 .with-hover-effect {
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
+}
+.with-hover-effect.with-img img {
+  -o-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 .with-hover-effect:hover {
   -o-transform: translateY(-6px);
@@ -550,19 +565,14 @@ footer .container .qrcode div p {
   -moz-transform: scale(1.2);
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
-  -o-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 .with-hover-effect:hover.with-light .c-holder .light {
-  left: 100% !important;
   -o-transition: all 0.5s ease !important;
   -ms-transition: all 0.5s ease !important;
   -moz-transition: all 0.5s ease !important;
   -webkit-transition: all 0.5s ease !important;
   transition: all 0.5s ease !important;
+  left: 100% !important;
 }
 /*
  媒体查询
