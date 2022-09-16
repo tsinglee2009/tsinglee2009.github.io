@@ -46,6 +46,28 @@ ol {
   font-size: 3.36vw;
   color: #f8fdab;
 }
+.group-title .tips {
+  position: absolute;
+  bottom: -0.84vw;
+  right: 0;
+  margin-right: 4.2vw;
+  font-size: 0.84vw;
+  line-height: 1.4;
+}
+.group-title .tips a {
+  padding: 0.14vw;
+  font-size: 0.84vw;
+  line-height: 1.4;
+  color: #999999;
+  background-color: transparent;
+  text-decoration: none;
+  border-radius: 0;
+  border: 0;
+}
+.group-title .tips a:hover {
+  color: #999999;
+  text-decoration: underline;
+}
 .group-list {
   margin-bottom: 4.2vw;
   padding: 3.5vw;
@@ -95,10 +117,18 @@ ol {
   font-size: 1.82vw;
   color: #000;
 }
-.group-list .stage .grid-list .episode .content img {
+.group-list .stage .grid-list .episode .content .video-link {
   flex-shrink: 0;
   width: 19.6vw;
+}
+.group-list .stage .grid-list .episode .content .video-link img {
+  width: 100%;
   border-radius: 0.84vw;
+  transition: all 0.15s ease;
+}
+.group-list .stage .grid-list .episode .content .video-link img:hover {
+  transform: translateY(-0.14vw);
+  box-shadow: 0 0.28vw 0.28vw 0 #ccc;
 }
 .group-list .stage .grid-list .episode .content .info {
   width: 0;
@@ -130,7 +160,7 @@ ol {
   flex-direction: column;
   justify-content: space-around;
 }
-a {
+.group-list .stage .grid-list .episode .content .practice a {
   display: inline-block;
   padding: 0 2.24vw;
   line-height: 3.36vw;
@@ -142,15 +172,21 @@ a {
   overflow: visible;
   white-space: nowrap;
 }
-a.active {
+.group-list .stage .grid-list .episode .content .practice a.active {
   color: #ff7f2a;
 }
-a:hover {
+.group-list .stage .grid-list .episode .content .practice a:hover {
   color: #fff;
   background-color: #ff962e;
 }
 footer {
-  text-align: center;
   font-size: 1.4vw;
+  line-height: 2.24vw;
+  text-align: center;
   color: #aaa;
+}
+footer img {
+  height: 1.12vw;
+  margin: 0 0.28vw 0.28vw;
+  vertical-align: middle;
 }
