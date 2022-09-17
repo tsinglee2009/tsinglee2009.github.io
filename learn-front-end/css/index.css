@@ -117,6 +117,9 @@ ol {
   font-size: 1.82vw;
   color: #000;
 }
+.group-list .stage .grid-list .episode .content .title h4.active {
+  color: #ff7f2a;
+}
 .group-list .stage .grid-list .episode .content .video-link {
   flex-shrink: 0;
   width: 19.6vw;
@@ -125,6 +128,7 @@ ol {
   width: 100%;
   border-radius: 0.84vw;
   transition: all 0.15s ease;
+  vertical-align: middle;
 }
 .group-list .stage .grid-list .episode .content .video-link img:hover {
   transform: translateY(-0.14vw);
