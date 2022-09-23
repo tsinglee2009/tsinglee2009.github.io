@@ -1,0 +1,1218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.clearfix::before,
+.clearfix::after {
+    content: '';
+    display: block;
+}
+.clearfix::after {
+    clear: both;
+}
+
+body {
+    font-family: "Microsoft YaHei","Heiti SC",tahoma,arial,"Hiragino Sans GB","\5B8B\4F53",sans-serif;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #666;
+    background-color: #f2f2f2;
+}
+
+// 
+@color-jd-red: #e82124;
+
+.wrapper {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
+
+img {
+    vertical-align: middle;
+}
+
+i {
+    font-style: normal;
+}
+
+a {
+    color: #999;
+    text-decoration: none;
+
+    &:hover {
+        color: @color-jd-red;
+    }
+}
+
+.a_style_333 {
+    color: #333;
+    &:hover {
+        color: @color-jd-red;
+    }
+}
+
+input {
+    border: 0;
+    border-radius: 0;
+
+    &:focus-visible {
+        outline: 0;
+    }
+}
+
+.jd_color {
+    color: @color-jd-red !important;
+}
+
+.iconfont {
+    vertical-align: middle;
+}
+
+/* start index.css */
+
+.jd_container {
+
+    // 置顶广告条
+    .jd_top_ads {
+
+        a {
+            display : block;
+            text-align: center;
+            background-color: #072210;
+
+            .pic {
+                position: relative;
+                display: inline-block;
+                
+                img {
+                    position: relative;
+                    height: 80px;
+                }
+
+                .iconfont {
+                    position: absolute;
+                    top: 2px;
+                    right: 1px;
+                    font-size: 18px;
+                    color: #777;
+                }
+            }
+        }
+    }
+
+    .jd_main {
+
+        // 快捷导航栏
+        .jd_shortcut {
+
+            height: 30px;
+            line-height: 30px;
+            color: #999;
+            background-color: #dfe0e1;
+
+            a {
+                .iconfont {
+                    font-size: 12px;
+                    line-height: 30px;
+                    vertical-align: middle;
+                }
+
+                &:hover {
+                    color: @color-jd-red;
+                }
+            }
+
+            .shortcut_split {
+                margin: 0 1px;
+                color: #ccc;
+                font-size: 12px;
+                line-height: 30px;
+            }
+
+            .left {
+                i {
+                    margin-left: 8px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    color: @color-jd-red;
+                }
+            }
+
+            ul {
+                float: right;
+                right: 0;
+                top: 0;
+
+                li {
+                    float: left;
+
+                    a {
+                        padding: 0 10px;
+                    }
+
+                    &:first-child a:nth-child(1) {
+                        padding-right: 0;
+                    }
+                    &:first-child a:nth-child(2) {
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    
+        // 头部区域
+        .jd_header {
+            height: 140px;
+            margin-bottom: 12px;
+            padding: 10px 0;
+            background-color: white;
+    
+            border-top: 1px solid #e4e4e4;
+            border-bottom: 1px solid #e4e4e4;
+
+            .wrapper {
+                position: relative;
+
+                .logo {
+                    position: absolute;
+                    width: 190px;
+                    height: 120px;
+                    top: 0;
+                    left: 0;
+
+                    a {
+                        display: block;
+                        width: 190px;
+                        height: 120px;
+                        font-size: 0;
+                        background-image: url('../images/logo.png');
+                    }
+                }
+
+                .jd_search {
+
+                    .top_area {
+
+                        .input_field {
+
+                            position: relative;
+
+                            display: inline-block;
+                            margin-top: 15px;
+                            margin-left: 260px;
+
+                            width: 550px;
+                            height: 36px;
+                            border: 2px solid @color-jd-red;
+
+                            input {
+                                width: 430px;
+                                height: 28px;
+
+                                margin: 2px 10px 2px 16px;
+                                font-size: 12px;
+                                line-height: 28px;
+                                color: #333;
+
+                                &::placeholder {
+                                    font-size: 10px;
+                                    color: #ccc;
+                                }
+                            }
+
+                            .icon-camera {
+                                margin-right: 8px;
+                                font-size: 18px;
+                                vertical-align: middle;
+                                color: #ccc;
+                            }
+
+                            .btn_search {
+
+                                position: absolute;
+                                display: inline-block;
+                                width: 58px;
+                                height: 32px;
+                                top: 0;
+                                right: 0;
+                                text-align: center;
+                                background-color: @color-jd-red;
+
+                                .iconfont {
+                                    vertical-align: middle;
+                                    font-size: 20px;
+                                    font-weight: bold;
+                                    line-height: 32px;
+                                    color: white;
+                                }
+                            }
+                        }
+
+                        .cart_field {
+                            display: inline-block;
+
+                            margin-left: 16px;
+
+                            vertical-align: middle;
+                            text-align: center;
+
+                            .btn_cart {
+
+                                display: block;
+
+                                width: 130px;
+                                height: 36px;
+                                line-height: 36px;
+
+                                border: 1px solid #eee;
+
+                                color: @color-jd-red;
+
+                                .iconfont {
+                                    position: relative;
+                                    font-size: 20px;
+                                    color: @color-jd-red;
+                                    margin-right: 10px;
+
+                                    span {
+                                        position: absolute;
+                                        min-width: 16px;
+                                        height: 13px;
+                                        padding: 1px 4px;
+                                        top: -5px;
+                                        left: 14px;
+    
+                                        text-align: center;
+                                        line-height: 12px;
+                                        font-size: 10px;
+                                        color: #fff;
+    
+                                        border-radius: 6px;
+                                        background-color: red;
+                                    }
+                                }
+
+                                &:hover {
+                                    border: 1px solid @color-jd-red;
+                                }
+                            }
+                        }
+                    }
+
+                    // 搜索推荐列表
+                    .jd_reco_list {
+
+                        margin-left: 260px;
+                        margin-top: 4px;
+
+                        li {
+                            float: left;
+                            margin-right: 8px;
+
+                            a {
+                                line-height: 18px;
+                            }
+                        }
+                    }
+
+                    // 分类
+                    .jd_type_list {
+
+                        margin-left: 216px;
+                        margin-top: 16px;
+
+                        li {
+                            float: left;
+                            margin-right: 24px;
+
+                            a {
+                                display: block;
+                                height: 40px;
+                                font-size: 15px;
+                                line-height: 40px;
+                                color: #333;
+
+                                &:hover {
+                                    color: @color-jd-red;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .right {
+                    position: absolute;
+                    width: 190px;
+                    height: 120px;
+                    top: 0;
+                    right: 0;
+
+                    a {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+
+                        background-image: url('../uploads/jd-top-right-reco.png');
+                        background-size: contain;
+                    }
+                }
+            }
+        }
+
+        // 轮播图区域
+        .jd_groups {
+
+            .wrapper {
+
+                position: relative;
+                height: 470px;
+                margin-bottom: 30px;
+
+                // 左侧列表
+                .left_list {
+
+                    float: left;
+                    width: 190px;
+                    height: 100%;
+                    padding: 10px 0;
+
+                    background-color: #fff;
+
+                    li {
+                        padding-left: 18px;
+                        font-size: 0;
+
+                        .list_split {
+                            margin: 0 3px 0 2px;
+                            font-size: 10px;
+                            color: #666;
+                        }
+
+                        a {
+                            font-size: 14px;
+                            line-height: 25px;
+                            color: #333;
+
+                            &:hover {
+                                color: @color-jd-red;
+                            }
+                        }
+
+                        &:hover {
+                            background-color: #d4d4d4;
+                        }
+                    }
+                }
+                // 中间轮播图
+                .jd_carousel {
+
+                    position: relative;
+                    float: left;
+                    width: 590px;
+                    height: 470px;
+                    margin-left: 10px;
+                    background-color: #fff;
+
+                    .carousel_content_list {
+
+                        position: relative;
+
+                        li {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            opacity: 1;
+
+                            &:nth-child(n+4) {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .carousel_control_list {
+
+                        position: absolute;
+                        bottom: 20px;
+                        left: 30px;
+
+                        li {
+
+                            float: left;
+                            display: block;
+                            width: 9px;
+                            height: 9px;
+                            margin-top: 3px;
+                            margin-bottom: 3px;
+                            margin-right: 4px;
+
+                            border-radius: 50%;
+                            background-color: rgba(255, 255, 255, .3);
+
+                            i {
+                                display: none;
+                                width: 9px;
+                                height: 9px;
+
+                                border-radius: 50%;
+                                background-color: #fff;
+
+                                margin-left: 3px;
+                                margin-top: 3px;
+                            
+                                vertical-align: middle;
+                            }
+
+                            &.focus {
+                                margin-top: 0;
+                                margin-bottom: 0;
+                                width: 15px;
+                                height: 15px;
+
+                                i {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+
+                    .btn_left {
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+
+                        transform: translateY(-18px);
+
+                        a {
+                            display: block;
+                            width: 26px;
+                            height: 36px;
+
+                            line-height: 36px;
+
+                            border-radius: 0 18px 18px 0;
+                            background-color: rgba(0,0,0,.15);
+
+                            .iconfont {
+                                color: #fff;
+                                margin-left: 2px;
+                            }
+
+                            &:hover {
+                                background-color: rgba(0,0,0,.35);
+                            }
+                        }
+                    }
+
+                    .btn_right {
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+
+                        transform: translateY(-18px);
+
+                        a {
+                            display: block;
+                            width: 26px;
+                            height: 36px;
+
+                            line-height: 36px;
+
+                            border-radius: 18px 0 0 18px;
+                            background-color: rgba(0,0,0,.15);
+
+                            .iconfont {
+                                color: #fff;
+                                margin-left: 8px;
+                            }
+
+                            &:hover {
+                                background-color: rgba(0,0,0,.35);
+                            }
+                        }
+                    }
+                }
+                // 右侧列表推荐
+                .right_list {
+                    float: left;
+                    position: relative;
+                    width: 190px;
+                    height: 470px;
+                    margin-left: 10px;
+
+                    li {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+
+                        a {
+                            display: block;
+                            margin-bottom: 10px;
+
+                            img {
+                                width: 190px;
+                            }
+
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+                // 右侧账户和快报
+                .user {
+                    float: left;
+                    width: 190px;
+                    height: 470px;
+                    margin-left: 10px;
+                    background-color: #fff;
+
+                    .info {
+
+                        .top {
+
+                            height:66px;
+                            width: 100%;
+
+                            padding-top: 16px;
+                            padding-left: 20px;
+
+                            img {
+                                width: 40px;
+                                border-radius: 50%;
+                                vertical-align: middle;
+                            }
+
+                            .welcome {
+                                display: inline-block;
+                                vertical-align: middle;
+                                margin-left: 10px;
+
+                                p {
+                                    color: #999;
+                                }
+                            }
+                        }
+
+                        .bottom {
+
+                            font-size: 0;
+                            text-align: center;
+
+                            .new {
+                                display: inline-block;
+                                width: 70px;
+                                height: 24px;
+
+                                margin-right: 10px;
+        
+                                font-size: 12px;
+                                line-height: 24px;
+
+                                border-radius: 12px;
+        
+                                color: #eee;
+                                background-color: @color-jd-red;
+
+                                &:hover {
+                                    background-color: #c81623;
+                                    color: #fff;
+                                }
+                            }
+        
+                            .plus {
+                                display: inline-block;
+                                width: 70px;
+                                height: 24px;
+        
+                                font-size: 12px;
+                                line-height: 24px;
+
+                                border-radius: 12px;
+        
+                                color: #beaf77;
+                                background-color: #2f2f2e;
+
+                                &:hover {
+                                    background-color: #c81623;
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+
+                    .news {
+
+                        height: 130px;
+                        width: 100%;
+
+                        margin-top: 10px;
+                        padding: 8px 14px;
+
+                        border-top: 1px solid #ccc;
+                        border-bottom: 1px solid #ccc;
+
+                        .news_title {
+                            position: relative;
+
+                            a {
+                                position: absolute;
+                                right: 0;
+                                top: 0;
+                                line-height: 1.2;
+
+                                font-size: 10px;
+
+                                .iconfont {
+                                    vertical-align: middle;
+                                }
+                            }
+                        }
+
+                        .news_list {
+
+                            padding: 10px 0;
+
+                            li {
+
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+
+                                margin-bottom: 6px;
+                                line-height: 1.3;
+
+                                a {
+                                    i {
+                                        display: inline-block;
+                                        padding: 0 4px;
+                                        margin-right: 4px;
+                                        color: @color-jd-red;
+                                        background-color: #fdeeee;
+                                        border-radius: 2px;
+                                    }
+
+                                    span {
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                    }
+                                }
+
+                                &:last-child {
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+                    }
+
+                    .grid_list {
+
+                        margin-top: 12px;
+
+                        li {
+                            float: left;
+                            text-align: center;
+
+                            a {
+                                display: inline-block;
+                                width: 63px;
+                                height: 55px;
+
+                                img {
+                                    width: 28px;
+                                }
+
+                                p {
+                                    line-height: 25px;
+                                }
+                            }
+                        }
+                    }
+
+                }
+                // 
+                .float_act {
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    font-size: 0;
+
+                    .board_show {
+                        display: inline-block;
+                        margin-left: -272px;
+                    }
+
+                    .board_act {
+
+                        display: inline-block;
+
+                        vertical-align: middle;
+
+                        a {
+                            position: relative;
+                            display: none;
+                            height: 470px;
+                            width: 790px;
+                            background-image: url('../uploads/fs_act_banner_lk.jpeg');
+
+                            .iconfont {
+                                position: absolute;
+                                top: 20px;
+                                right: 20px;
+                                font-size: 18px;
+                                color: #777;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 主要内容区
+        .jd_app {
+
+            // 京东秒杀
+            .jd_secskill {
+
+                position: relative;
+                height: 260px;
+                margin-bottom: 20px;
+                background-color: white;
+
+                .count_down {
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 190px;
+                    height: 100%;
+
+                    background-image: url(../uploads/secskill_bg.png);
+
+                    color: #fff;
+                    text-align: center;
+
+                    h2 {
+                        margin-top: 32px;
+                        font-size: 30px;
+                    }
+
+                    .desc {
+                        margin-top: 90px;
+                        font-size: 14px;
+
+                        .cd_start {
+                            font-size: 18px;
+                            vertical-align: middle;
+                        }
+                    }
+
+                    .cd_field {
+                        margin-top: 10px;
+
+                        span {
+                            display: inline-block;
+                            width: 30px;
+                            height: 30px;
+
+                            font-size: 20px;
+                            background-color: #292e2a;
+                        }
+
+                        .time_split {
+                            margin: 0 6px;
+                            font-size: 20px;
+                        }
+                    }
+                }
+
+                .jd_secskill_list {
+
+                    position: absolute;
+                    top: 0;
+                    left: 190px;
+                    width: 800px;
+                    height: 100%;
+
+                    .jd_secskill_list_view {
+
+                        position: relative;
+                        height: 100%;
+                        width: 100%;
+                        padding: 30px 0;
+
+                        overflow: hidden;
+                        
+                        ul {
+
+                            width: 1600px;
+                            height: 200px;
+
+                            li {
+                                position: relative;
+                                float: left;
+                                width: 200px;
+                                height: 200px;
+                                padding: 0 20px;
+
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+
+                                text-align: center;
+
+                                a {
+                                    p {
+                                        margin-top: 13px;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                    }
+                                    .price {
+                                        margin-top: 8px;
+                                        color: @color-jd-red;
+                                    }
+                                }
+
+                                &::after {
+                                    content: '';
+                                    display: block;
+                                    position: absolute;
+                                    right: 0;
+                                    top: 50%;
+                                    width: 1px;
+                                    height: 200px;
+                                    transform: translateY(-50%);
+                                    background: linear-gradient(180deg,white,#eeeeee,white);
+                                }
+                            }
+                        }
+
+
+                        .btn_left {
+                            position: absolute;
+                            left: 0;
+                            top: 50%;
+
+                            transform: translateY(-18px);
+
+                            a {
+                                display: block;
+                                width: 26px;
+                                height: 36px;
+
+                                line-height: 36px;
+
+                                border-radius: 0 18px 18px 0;
+                                background-color: rgba(0,0,0,.15);
+
+                                .iconfont {
+                                    color: #fff;
+                                    margin-left: 2px;
+                                }
+
+                                &:hover {
+                                    background-color: rgba(0,0,0,.35);
+                                }
+                            }
+                        }
+
+                        .btn_right {
+                            position: absolute;
+                            right: 0;
+                            top: 50%;
+
+                            transform: translateY(-18px);
+
+                            a {
+                                display: block;
+                                width: 26px;
+                                height: 36px;
+
+                                line-height: 36px;
+
+                                border-radius: 18px 0 0 18px;
+                                background-color: rgba(0,0,0,.15);
+
+                                .iconfont {
+                                    color: #fff;
+                                    margin-left: 8px;
+                                }
+
+                                &:hover {
+                                    background-color: rgba(0,0,0,.35);
+                                }
+                            }
+                        }
+
+                    }
+                }
+
+                .type_seckill {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: 180px;
+                    height: 240px;
+                    margin: 10px;
+                    padding-top: 12px;
+
+                    text-align: center;
+                    font-size: 14px;
+                    line-height: 20px;
+
+                    background: linear-gradient(180deg, transparent 0, rgba(255,255,255,.5) 60%,rgba(220,224,236,.5) 100%);
+
+                    p {
+                        margin-top: 8px;
+                    }
+
+                    div a {
+                        display: inline-block;
+                        width: 80px;
+                        height: 24px;
+                        margin-top: 6px;
+                        padding-left: 7px;
+                        font-size: 12px;
+                        line-height: 22px;
+                        border-radius: 12px;
+                        border: 1px solid @color-jd-red;
+                        color: @color-jd-red;
+
+                        .iconfont {
+                            text-align: center;
+                            vertical-align: middle;
+                            font-size: 10px;
+                        }
+                    }
+                }
+
+                .elevator_list {
+
+                    position: absolute;
+                    right: -80px;
+                    top: 0;
+                    width: 58px;
+                    height: 408px;
+
+                    font-size: 14px;
+                    text-align: center;
+
+                    a {
+                        position: relative;
+                        display: block;
+                        width: 58px;
+                        height: 58px;
+                        padding: 10px;
+
+                        background-color: #fff;
+
+                        .iconfont {
+                            font-size: 20px;
+                            font-weight: 700;
+                            line-height: 1;
+                            vertical-align: middle;
+                            margin: 0 10px;
+                        }
+
+                        &:hover {
+                            background-color: @color-jd-red;
+                            color: #fff;
+                        }
+
+                        &:hover::after {
+                            background-color: @color-jd-red;
+                        }
+                    }
+                    
+                    ul {
+
+                        a::after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            bottom: 0;
+                            left: 50%;
+                            transform: translateX(-50%);
+
+                            height: 1px;
+                            width: 30px;
+                            background-color: #eee;
+                        }
+                    }
+
+                    .elevator_top {
+
+                        display: none;
+
+                        a {
+                            height: 60px;
+                        }
+                    }
+                }
+            }
+
+            .jd_spec {
+                // 发现好货
+                .jd_nice_goods {
+
+                    position: relative;
+                    height: 260px;
+                    margin-bottom: 20px;
+                    background-color: white;
+
+                    .nice_head {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 190px;
+                        height: 260px;
+
+                        background-image: url(../uploads/nice_goods_bg.png);
+
+                        .nice_title {
+                            width: 160px;
+                            height: 90px;
+                            margin: 15px;
+                            padding: 56px 0 0 20px;
+                            background-image: url(../uploads/nice_goods_bg2.png);
+
+                            color: rgba(255,255,255,.8);
+                            font-size: 16px;
+                        }
+                    }
+
+                    .nice_list {
+
+                        position: absolute;
+                        left: 200px;
+                        top: 0;
+                        width: 990px;
+                        height: 260px;
+                        overflow: hidden;
+
+                        ul {
+                            width: 2000px;
+                            height: 100%;
+                            padding: 30px 0;
+
+                            li {
+                                position: relative;
+                                float: left;
+                                width: 198px;
+                                height: 200px;
+                                text-align: center;
+
+                                .nice_pic {
+                                    // position: absolute;
+                                    // bottom: 0;
+                                    // left: 50%;
+                                    // transform: translateX(-50%);
+                                }
+
+                                .nice_label {
+                                    // position: absolute;
+                                    width: 100%;
+                                    padding: 0 25px;
+                                    // top: 0;
+                                    // left: 50%;
+                                    // transform: translateX(-50%);
+
+                                    p {
+                                        font-size: 14px;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                    }
+                                }
+                            }
+                        }
+
+                        .nice_ctrl {
+                            position: absolute;
+                            left: 0;
+                            bottom: 0;
+                            height: 30px;
+                            width: 990px;
+                            padding: 10px;
+
+                            .nice_slider_bg {
+                                position: absolute;
+                                bottom: 14px;
+                                left: 10px;
+                                height: 3px;
+                                width: 970px;
+                                
+                                border-radius: 1px;
+                                background-color: #f1f1f1;
+                            }
+
+                            .nice_slider_bar_area {
+
+                                position: absolute;
+                                bottom: 10px;
+                                left: 10px;
+                                height: 10px;
+                                width: 970px;
+                                
+                                .nice_slider_bar {
+                                    position: absolute;
+                                    height: 100%;
+
+                                    left: 10%;
+                                    width: 20%;
+
+                                    border-radius: 5px;
+                                    background-color: #d3d2d3;
+                                }
+                            }
+
+                        }
+                    }
+                }
+                // 特价+闪购
+                .jd_special {
+                    height: 336px;
+                    margin-bottom: 20px;
+                    background-color: white;
+                }
+                // 首发+寻宝+逛店+领券
+                .jd_core {
+                    height: 336px;
+                    margin-bottom: 20px;
+                    background-color: white;
+                }
+            }
+
+            // 频道广场
+            .jd_channels {
+                height: 1000px;
+                margin-bottom: 20px;
+                background-color: white;
+            }
+
+            // 为你推荐
+            .jd_recommends {
+                height: 2000px;
+                margin-bottom: 20px;
+                background-color: white;
+            }
+        }
+    }
+
+    // 底部信息
+    .jd_footer {
+        height: 570px;
+        background-color: white;
+    }
+}
+
+

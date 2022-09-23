@@ -1,0 +1,827 @@
+@vw : (1 / 3.75vw);
+@color-jd : #ff3632;
+
+/* init css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.clearfix::before,
+.clearfix::after {
+    content: '';
+    display: block;
+}
+.clearfix::after {
+    clear: both;
+}
+
+body {
+    font-family: "Microsoft YaHei","Heiti SC",tahoma,arial,"Hiragino Sans GB","\5B8B\4F53",sans-serif;
+    font-size: 12 * @vw;
+    line-height: 1.5;
+    background-color: #f5f5f5;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
+
+img, .iconfont {
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+}
+
+i {
+    font-style: normal;
+}
+
+input {
+    border: 0;
+    border-radius: 0;
+
+    &:focus-visible {
+        outline: 0;
+    }
+}
+
+/* start index.css */
+
+// 顶部：打开京东app
+.jd_top_bar {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 90;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    height: 45 * @vw;
+
+    font-size: 14 * @vw;
+    color: #fff;
+    text-align: center;
+    background-color: #2d2d2d;
+
+    .close {
+        width: 30 * @vw;
+        text-align: center;
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            line-height: 45 * @vw;
+            color: #f1f1f1;
+
+            .iconfont {
+                font-size: 14 * @vw;
+            }
+        }
+    }
+
+    .logo {
+        width: 34 * @vw;
+        padding:  7.5 * @vw 2 * @vw;
+
+        img {
+            height: 30 * @vw;
+        }
+    }
+
+    .tips {
+        flex: 1;
+
+
+    }
+
+    .open {
+
+        width: 94 * @vw;
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            line-height: 45 * @vw;
+
+            color: #fff;
+            background-color: #ff2f23;
+        }
+    }
+}
+
+// 搜索栏
+.jd_search_area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45 * @vw;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+
+    background-color: transparent;
+
+    &.top_actived {
+        top: 45 * @vw
+    }
+
+    &.scroll_off_top {
+        background-color: #eb2b31;
+    }
+
+    .menu {
+
+        padding: 0 15 * @vw;
+
+        a {
+            display: block;
+
+            img {
+                height: 18 * @vw;
+                width: 20 * @vw;
+            }
+        }
+    }
+
+    .search_box {
+        flex: 1;
+        display: flex;
+        align-items: center;
+
+        height: 30 * @vw;
+        border-radius: 15 * @vw;
+        background-color: #fff;
+
+        img {
+            margin-left: 15 * @vw;
+            height: 15 * @vw;
+            vertical-align: middle;
+        }
+
+        .split {
+            display: inline-block;
+            margin: 0 6 * @vw;
+            width: 1px;
+            height: 15 * @vw;
+            vertical-align: middle;
+            background-color: #ccc;
+        }
+
+        .iconfont {
+            font-size: 20 * @vw;
+            color: #999;
+            vertical-align: middle;
+        }
+
+        input {
+
+            flex: 1;
+            height: 90%;
+
+            margin: 0 15 * @vw 0 10 * @vw;
+
+            vertical-align: middle;
+            font-size: 12px * @vw;
+
+            background-color: transparent;
+
+            &::placeholder {
+                font-size: 12px * @vw;
+                color: #999;
+            }
+        }
+    }
+
+    .login {
+
+        padding: 0 15 * @vw;
+
+        a {
+            font-size: 14 * @vw;
+            color: #fff;
+        }
+    }
+}
+
+.jd_container {
+
+    /* 解决移动端fixed实效的问题 */
+
+    /*main绝对定位，进行内部滚动*/
+    position: absolute;
+    width: 100%;
+    /*使之可以滚动*/
+    overflow-y: scroll;
+    /*增加弹性滚动,解决滚动不流畅的问题*/
+    -webkit-overflow-scrolling:touch;
+
+    /* 内容开始 ... */
+
+    // 占位符
+    .jd_top_bar_holder {
+        display: none;
+        height: 45 * @vw;
+
+        &.top_actived {
+            display: block;
+        }
+    }
+
+    // 轮播图
+    .jd_carousel_area {
+
+        position: relative;
+        height: 187 * @vw;
+
+        overflow: hidden;
+
+        .slider_bg  {
+
+            position: absolute;
+            top: 0;
+            left: -25%;
+            width: 150%;
+            height: 145 * @vw;
+            background: linear-gradient(0deg,#f1503b,#c82519 50%);
+            border-radius: 0 0 100% 100%;
+        }
+
+        .carousel {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 138 * @vw;
+
+            .carousel_list {
+
+                position: absolute;
+                top: 0;
+                left: -200%;
+
+                font-size: 0;
+                white-space: nowrap;
+
+                li {
+                    display: inline-block;
+
+                    width: 100vw;
+                    height: 100%;
+                    padding: 0 12 * @vw;
+                    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 6 * @vw;
+                    }
+                }
+            }
+
+            .carousel_points {
+                position: absolute;
+                bottom: 8 * @vw;
+                left: 50%;
+                transform: translateX(-50%);
+
+                font-size: 0;
+                padding-left: 5 * @vw;
+
+                li {
+                    display: inline-block;
+                    width: 5 * @vw;
+                    height: 5 * @vw;
+                    margin-right: 5 * @vw;
+
+                    border-radius: 50%;
+
+                    background-color: rgba(255,255,255,.3);
+
+                    &.point_focus {
+                        background-color: #ff2725;
+                    }
+                }                
+            }
+        }
+    }
+
+    // 京东特产
+    .jd_spec_area {
+
+        height: 100 * @vw;
+        text-align: center;
+
+        margin-bottom: 10 * @vw;
+
+        img {
+            max-height: 100%;
+            max-width: 100%;
+        }
+    }
+
+    // 快捷菜单
+    .jd_types_area {
+        position: relative;
+        height: 162 * @vw;
+
+        overflow: hidden;
+
+        .pages {
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            .btn_list {
+
+                position: absolute;
+                top: 0;
+                left: 0;
+
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                
+                li {
+                    float: left;
+                    width: 75 * @vw;
+                    height: 74 * @vw;
+                    text-align: center;
+
+                    a {
+                        display: block;
+
+                        img {
+                            display: block;
+                            margin-top: 10 * @vw;
+                            margin-left: 16.5 * @vw;
+                            width: 40 * @vw;
+                            height: 40 * @vw;
+                        }
+
+                        span {
+                            color: #666;
+                            font-size: 12 * @vw;
+                            line-height: 30 * @vw;
+                        }
+                    }
+                }
+            }
+
+            .page_2 {
+                left: 100%;
+            }
+        }
+
+        .points {
+            position: absolute;
+            bottom: 4 * @vw;
+            left: 50%;
+            transform: translateX(-50%);
+
+            padding-left: 5 * @vw;
+            font-size: 0;
+
+            i {
+                display: inline-block;
+                width: 5 * @vw;
+                height: 5 * @vw;
+                border-radius: 500%;
+                margin-right: 5 * @vw;
+
+                background-color: rgba(0,0,0,.3);
+
+                &.cur {
+                    background-color: #ff2725;
+                }
+            }
+        }
+    }
+
+    // 京东秒杀
+    .jd_seckill_area {
+
+        position: relative;
+        width: 100%;
+        padding: 10 * @vw;
+
+        .seckill_content {
+
+            width: 100%;
+            height: 135 * @vw;
+
+            border-radius: 10 * @vw;
+            background-color: #fff;
+
+            .sec_header {
+
+                display: flex;
+                align-items: center;
+
+                width: 100%;
+                height: 34 * @vw;
+
+                background: url(../uploads/m.icon-seckill-bg.png) no-repeat;
+                background-size: contain;
+
+                h2 {
+                    font-size: 14 * @vw;
+                    margin: 0 10 * @vw;
+                }
+
+                .desc {
+
+                    span {
+                        font-size: 12 * @vw;
+                        font-weight: 700;
+                        color: @color-jd;
+
+                        &::after {
+                            content: '';
+                            display: inline-block;
+                            margin-right: 10 * @vw;
+                            width: 20 * @vw;
+                            height: 18 * @vw;
+                            vertical-align: middle;
+                            background: url(../uploads/m.icon-seckill-time.png) no-repeat;
+                            background-size: cover;
+                        }
+                    }
+                }
+
+                .cd_field {
+
+                    flex: 1;
+                    font-size: 12 * @vw;
+                    
+                    span {
+                        display: inline-block;
+                        padding: 1 * @vw;
+                        color: #fff;
+                        background-color: @color-jd;
+                        border-radius: 4 * @vw;
+                    }
+
+                    .time_split {
+                        font-weight: 700;
+                        color: @color-jd;
+                    }
+                }
+
+                .right {
+                    margin-right: 10 * @vw;
+                    color: @color-jd;
+
+                    .iconfont {
+                        font-size: 10 * @vw;
+                        color: #fff;
+                        background-color: @color-jd;
+                        border-radius: 50%;
+                    }
+                }
+            }
+    
+            .sec_list {
+
+                width: 100%;
+                padding: 0 6 * @vw;
+
+                .list_view {
+                    
+                    position: relative;
+                    height: 101 * @vw;
+
+                    overflow: hidden;
+
+                    .list {
+
+                        position: absolute;
+                        left: 0%;
+
+                        height: 100%;
+
+                        font-size: 0;
+                        white-space: nowrap;
+
+                        li {
+                            display: inline-block;
+                            vertical-align: middle;
+                            width: 55 * @vw;
+                            margin-top: 10 * @vw;
+                            margin-right: 2 * @vw;
+                            text-align: center;
+
+                            a {
+                                font-size: 11 * @vw;
+                                font-weight: 700;
+                                color: @color-jd;
+
+                                img {
+                                    display: block;
+                                    width: 55 * @vw;
+                                    height: 55 * @vw;
+                                    margin-bottom: 6 * @vw;
+                                }
+                            }
+                        }
+
+                        .list_end {
+
+                            width: 20 * @vw;
+                            height: 100%;
+                            margin-top: 0;
+                            margin-left: 15 * @vw;
+                            font-size: 12 * @vw;
+
+                            color: #666;
+                            background-color: #f3f3f3;
+
+                            white-space: normal;
+                            word-break: break-all;
+
+                            b {
+                                line-height: 1;
+                            }
+
+                            .iconfont {
+                                font-size: 8 * @vw;
+                                color: #fff;
+                                background-color: @color-jd;
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    // 商品列表
+    .jd_goods_list {
+
+        padding: 5 * @vw;
+
+        .left_list {
+            float: left;
+            width: 50%;
+        }
+
+        .right_list {
+            float: left;
+            width: 50%;
+        }
+
+        li {
+            width: 100%;
+            padding: 5 * @vw;
+
+            .goods {
+
+                display: block;
+
+                background-color: #fff;
+                border-radius: 6 * @vw;
+
+                img {
+                    display: block;
+                    width: 100%;
+                    aspect-ratio: 1;
+
+                    border-radius: 6 * @vw 6 * @vw 0 0;
+                }
+
+                .info {
+    
+                    position: relative;
+                    width: 100%;
+                    padding: 10 * @vw;
+                    padding-top: 6 * @vw;
+                    overflow: hidden;
+    
+                    h3 {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        display: box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                        line-clamp: 2;
+
+                        color: #333;
+                    }
+
+                    .lowest_tag {
+
+                        display: inline-block;
+                        margin: 6 * @vw 0;
+                        background-color: #ffeff5;
+                        padding: 0 2 * @vw;
+
+                        img {
+                            display: inline;
+                            width: 12 * @vw;
+                        }
+
+                        span {
+                            font-size: 12 * @vw;
+                            color: #ff2078;
+                            vertical-align: middle;
+                        }
+                    }
+    
+                    .discount {
+
+                        display: flex;
+                        align-items: center;
+
+                        .price {
+                            font-size: 14 * @vw;
+                            color: @color-jd;
+    
+                            span {
+                                font-size: 20 * @vw;
+                            }
+                        }
+
+                        .reduction {
+                            margin-left: 6 * @vw;
+                            padding: @vw 6 * @vw;
+                            font-size: 12 * @vw;
+                            color: @color-jd;
+                            background: url(../uploads/m.icon_price_tag.png) no-repeat;
+                            background-size: contain;
+                        }
+                    }
+
+                    .goods_bottom {
+
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .number {
+                            font-size: 12 * @vw;
+                            color: #999;
+                        }
+
+                        .feed_back {
+                            font-size: 12 * @vw;
+                            color: #262626;
+
+                            text-align: center;
+                            padding: 0 8 * @vw;
+                            background-color: #f0f0f0;
+                            border-radius: 10 * @vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 底部信息栏
+    .jd_footer {
+    
+        height: 210 * @vw;
+    
+        background-color: #fff;
+        border-top: 1px solid #ddd;
+    
+        text-align: center;
+        font-size: 14px;
+    
+        .user_btns {
+    
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 58 * @vw;
+            padding: 0 35 * @vw 0 45 * @vw;
+    
+            border-bottom: 1px solid #ddd;
+    
+            li {
+                a {
+                    color: #848689;
+                }
+    
+                &.list-split {
+                    display: block;
+                    width: 1px;
+                    height: 15 * @vw;
+                    background-color: #d1d1d1;
+                }
+            }
+        }
+    
+        .app_ends {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70 * @vw;
+            padding: 0 40 * @vw;
+    
+            border-bottom: 1px solid #ddd;
+    
+            img {
+                height: 60 * @vw;
+            }
+        }
+    
+        .copyright {
+            vertical-align: middle;
+            font-size: 12 * @vw;
+            line-height: 32 * @vw;
+            color: #848689;
+        }
+    }
+}
+
+// 浮动：返回顶部
+.jd_go_top {
+    position: fixed;
+    right: 10 * @vw;
+    bottom: 120 * @vw;
+
+    width: 38 * @vw;
+    height: 38 * @vw;
+
+    img {
+        width: 100%;
+    }
+}
+
+// 底部：打开京东app
+.jd_open_app {
+
+    display: none;
+
+    position: fixed;
+    bottom: 76 * @vw;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 186 * @vw;
+    height: 40 * @vw;
+
+    background: url(../uploads/m.open_with_app.png) no-repeat;
+    background-size: contain;
+
+    .texts {
+        margin: 0 18 * @vw 0 82 * @vw;
+        height: 100%;
+        font-size: 14 * @vw;
+        color: #fff;
+
+        overflow: hidden;
+
+        li {
+            height: 40 * @vw;
+            line-height: 40 * @vw;
+        }
+    }
+}
+
+// 底部菜单栏
+.jd_menus {
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    height: 50 * @vw;
+    width: 100%;
+
+    background-color: #fff;
+    border: 1px solid #ddd;
+
+    .jd_menu {
+
+        height: 100%;
+
+        img {
+            margin-top: 2%;
+            height: 96%;
+        }
+    }
+}

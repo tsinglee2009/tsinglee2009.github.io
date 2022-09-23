@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="JS基础,WebApis,DOM,BOM,Session">
+    <meta name="description" content="2022前端学习-项目实战练习-S2E2">
+    <title>京东 (practice)</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- link css -->
+    <link rel="stylesheet" href="./lib/icon-font/iconfont.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <!-- html content start -->
+    <div class="jd_container">
+        <!-- 通栏内容 : 头部广告 -->
+        <div class="jd_top_ads">
+            <a href="">
+                <div class="pic">
+                    <img src="./uploads/jd-top-ads.jpeg" alt="">
+                    <i class="jd_btn_close_top_ads iconfont icon-close"></i>
+                </div>
+            </a>
+        </div>
+        <!-- 版心内容 -->
+        <div class="jd_main">
+            <!-- 通栏内容 : 快捷导航栏 -->
+            <div class="jd_shortcut">
+                <div class="wrapper">
+                    <a class="left" href="">
+                        <i class="iconfont icon-icon-test11"></i>
+                        <span>广东</span>
+                    </a>
+                    <ul class="right">
+                        <li>
+                            <a href="">你好，请登录</a>&nbsp;
+                            <a href="" class="jd_color">免费注册</a>
+                        </li>
+                        <li class="shortcut_split">|</li>
+                        <li><a href="">
+                            我的订单
+                        </a></li>
+                        <li class="shortcut_split">|</li>
+                        <li><a href="">
+                            我的京东<i class="iconfont icon-icon-test16"></i>
+                        </a></li>
+                        <li class="shortcut_split">|</li>
+                        <li><a href="">
+                            京东会员
+                        </a></li>
+                        <li class="shortcut_split">|</li>
+                        <li><a href="" class="jd_color">
+                            企业采购<i class="iconfont icon-icon-test16"></i>
+                        </a></li>
+                        <li class="shortcut_split">|</li>
+                        <li><a href="">
+                            商家服务<i class="iconfont icon-icon-test16"></i>
+                        </a></li>
+                        <li class="shortcut_split">|</li>
+                        <li><a href="">
+                            网站导航<i class="iconfont icon-icon-test16"></i>
+                        </a></li>
+                        <li class="shortcut_split">|</li>
+                        <li><a href="">
+                            手机京东
+                        </a></li>
+                        <li class="shortcut_split">|</li>
+                        <li><a href="">
+                            网站无障碍
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 头部 搜素栏 -->
+            <div class="jd_header">
+                <div class="wrapper">
+                    <h2 class="logo">
+                        <a href="">京东</a>
+                    </h2>
+                    <div class="jd_search">
+                        <div class="top_area">
+                            <div class="input_field">
+                                <input type="text" placeholder="行车记录仪">
+                                <i class="iconfont icon-camera"></i>
+                                <a class="btn_search" href=""><i class="iconfont icon-icon-test5"></i></a>
+                            </div>
+                            <div class="cart_field">
+                                <a class="btn_cart" href="">
+                                    <i class="iconfont icon-icon-test3"><span>0</span></i>
+                                    我的购物车
+                                </a>
+                            </div>
+                        </div>
+                        <ul class="jd_reco_list clearfix">
+                            <li><a class="jd_color" href="">
+                                绫致超品日
+                            </a></li>
+                            <li><a href="">
+                                京东京造
+                            </a></li>
+                            <li><a href="">
+                                世界杯
+                            </a></li>
+                            <li><a href="">
+                                iPhone14
+                            </a></li>
+                            <li><a href="">
+                                官方直营
+                            </a></li>
+                        </ul>
+                        <ul class="jd_type_list clearfix">
+                            <li><a href="">
+                                京东五金城
+                            </a></li>
+                            <li><a href="">
+                                京东超市
+                            </a></li>
+                            <li><a href="">
+                                秒杀
+                            </a></li>
+                            <li><a href="">
+                                京东家电
+                            </a></li>
+                            <li><a href="">
+                                京东生鲜
+                            </a></li>
+                            <li><a href="">
+                                优惠券
+                            </a></li>
+                            <li><a href="">
+                                PLUS会员
+                            </a></li>
+                            <li><a href="">
+                                拍卖
+                            </a></li>
+                            <li><a href="">
+                                品牌闪购
+                            </a></li>
+                            <li><a href="">
+                                京东云
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="right">
+                        <a href="">
+                            
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- 轮播图 -->
+            <div class="jd_groups">
+                <div class="wrapper">
+                    <ul class="left_list">
+                        <li>
+                            <a href="">家用电器</a>
+                        </li>
+                        <li>
+                            <a href="">手机</a>
+                            <i class="list_split">/</i>
+                            <a href="">运营商</a>
+                            <i class="list_split">/</i>
+                            <a href="">数码</a>
+                        </li>
+                        <li>
+                            <a href="">电脑</a>
+                            <i class="list_split">/</i>
+                            <a href="">办公</a>
+                        </li>
+                        <li>
+                            <a href="">家居</a>
+                            <i class="list_split">/</i>
+                            <a href="">家具</a>
+                            <i class="list_split">/</i>
+                            <a href="">家装</a>
+                            <i class="list_split">/</i>
+                            <a href="">厨具</a>
+                        </li>
+                        <li>
+                            <a href="">男装</a>
+                            <i class="list_split">/</i>
+                            <a href="">女装</a>
+                            <i class="list_split">/</i>
+                            <a href="">童装</a>
+                            <i class="list_split">/</i>
+                            <a href="">内衣</a>
+                        </li>
+                        <li>
+                            <a href="">美妆</a>
+                            <i class="list_split">/</i>
+                            <a href="">个护清洁</a>
+                            <i class="list_split">/</i>
+                            <a href="">宠物</a>
+                        </li>
+                        <li>
+                            <a href="">女鞋</a>
+                            <i class="list_split">/</i>
+                            <a href="">箱包</a>
+                            <i class="list_split">/</i>
+                            <a href="">钟表</a>
+                            <i class="list_split">/</i>
+                            <a href="">珠宝</a>
+                        </li>
+                        <li>
+                            <a href="">男鞋</a>
+                            <i class="list_split">/</i>
+                            <a href="">运动</a>
+                            <i class="list_split">/</i>
+                            <a href="">户外</a>
+                        </li>
+                        <li>
+                            <a href="">房产</a>
+                            <i class="list_split">/</i>
+                            <a href="">汽车</a>
+                            <i class="list_split">/</i>
+                            <a href="">汽车用品</a>
+                        </li>
+                        <li>
+                            <a href="">母婴</a>
+                            <i class="list_split">/</i>
+                            <a href="">玩具乐器</a>
+                        </li>
+                        <li>
+                            <a href="">食品</a>
+                            <i class="list_split">/</i>
+                            <a href="">酒类</a>
+                            <i class="list_split">/</i>
+                            <a href="">生鲜</a>
+                            <i class="list_split">/</i>
+                            <a href="">特产</a>
+                        </li>
+                        <li>
+                            <a href="">艺术</a>
+                            <i class="list_split">/</i>
+                            <a href="">礼品鲜花</a>
+                            <i class="list_split">/</i>
+                            <a href="">农资绿植</a>
+                        </li>
+                        <li>
+                            <a href="">医药保健</a>
+                            <i class="list_split">/</i>
+                            <a href="">计生情趣</a>
+                        </li>
+                        <li>
+                            <a href="">图书</a>
+                            <i class="list_split">/</i>
+                            <a href="">文娱</a>
+                            <i class="list_split">/</i>
+                            <a href="">教育</a>
+                            <i class="list_split">/</i>
+                            <a href="">电子书</a>
+                        </li>
+                        <li>
+                            <a href="">机票</a>
+                            <i class="list_split">/</i>
+                            <a href="">酒店</a>
+                            <i class="list_split">/</i>
+                            <a href="">旅游</a>
+                            <i class="list_split">/</i>
+                            <a href="">生活</a>
+                        </li>
+                        <li>
+                            <a href="">众筹</a>
+                            <i class="list_split">/</i>
+                            <a href="">白条</a>
+                            <i class="list_split">/</i>
+                            <a href="">保险</a>
+                        </li>
+                        <li>
+                            <a href="">安装</a>
+                            <i class="list_split">/</i>
+                            <a href="">维修</a>
+                            <i class="list_split">/</i>
+                            <a href="">清洗</a>
+                            <i class="list_split">/</i>
+                            <a href="">二手</a>
+                        </li>
+                        <li>
+                            <a href="">工业品</a>
+                        </li>
+                    </ul>
+                    <div class="jd_carousel">
+                        <ul class="carousel_content_list">
+                            <li><a href="">
+                                <img src="./uploads/banner_1.jpeg" alt="">
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/banner_2.jpeg" alt="">
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/banner_3.jpeg" alt="">
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/banner_4.jpeg" alt="">
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/banner_5.jpeg" alt="">
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/banner_6.jpeg" alt="">
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/banner_7.jpeg" alt="">
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/banner_8.jpeg" alt="">
+                            </a></li>
+                        </ul>
+                        <ul class="carousel_control_list">
+                            <li class="focus"><i></i></li>
+                            <li><i></i></li>
+                            <li><i></i></li>
+                        </ul>
+                        <div class="btn_left">
+                            <a href="">
+                                <i class="iconfont icon-icon-test15"></i>
+                            </a>
+                        </div>
+                        <div class="btn_right">
+                            <a href="">
+                                <i class="iconfont icon-icon-test17"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="right_list">
+                        <li>
+                            <a href="">
+                                <img src="./uploads/reco_mini_01.jpeg" alt="">
+                            </a>
+                            <a href="">
+                                <img src="./uploads/reco_mini_02.jpeg" alt="">
+                            </a>
+                            <a href="">
+                                <img src="./uploads/reco_mini_03.jpeg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <img src="./uploads/reco_mini_03.jpeg" alt="">
+                            </a>
+                            <a href="">
+                                <img src="./uploads/reco_mini_04.jpeg" alt="">
+                            </a>
+                            <a href="">
+                                <img src="./uploads/reco_mini_05.jpeg" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="user">
+                        <div class="info">
+                            <div class="top">
+                                <img src="./images/avatar.png" alt="">
+                                <div class="welcome">
+                                    <p>Hi~欢迎逛京东！</p>
+                                    <a class="a_style_333" href="">登录</a>
+                                    <i class="split">|</i>
+                                    <a class="a_style_333" href="">注册</a>
+                                </div>
+                            </div>
+                            <div class="bottom">
+                                <a class="new" href="">新人福利</a>
+                                <a class="plus" href="">PLUS会员</a>
+                            </div>
+                        </div>
+                        <div class="news">
+                            <div class="news_title">
+                                <h3>京东快报</h3>
+                                <a href="">更多<i class="iconfont icon-icon-test17"></i></a>
+                            </div>
+                            <ul class="news_list clearfix">
+                                <li><a href="">
+                                    <i>热门</i>
+                                    <span>跨次元强力游戏BUFF，尝尝这份“华硕天选电竞套餐</span>
+                                </a></li>
+                                <li><a href="">
+                                    <i>热评</i>
+                                    <span>宅家游戏大饱眼福，电竞房需要的显示器给你找好了</span>
+                                </a></li>
+                                <li><a href="">
+                                    <i>热议</i>
+                                    <span>秋冬季节多喝汤，这道筒骨汤甘甜超好喝！</span>
+                                </a></li>
+                                <li><a href="">
+                                    <i>热门</i>
+                                    <span>为什么说LG Ultra PC是适合学生的性能本？</span>
+                                </a></li>
+                            </ul>
+                        </div>
+                        <ul class="grid_list">
+                            <li><a href="">
+                                <img src="./images/grid-1.png" alt="">
+                                <p>礼品卡</p>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./images/grid-2.png" alt="">
+                                <p>企业购</p>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./images/grid-3.png" alt="">
+                                <p>话费</p>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./images/grid-4.png" alt="">
+                                <p>加油卡</p>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./images/grid-5.png" alt="">
+                                <p>游戏</p>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./images/grid-6.png" alt="">
+                                <p>机票</p>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./images/grid-7.png" alt="">
+                                <p>白条</p>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./images/grid-8.png" alt="">
+                                <p>众筹</p>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./images/grid-9.png" alt="">
+                                <p>五金城</p>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./images/grid-10.png" alt="">
+                                <p>火车票</p>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./images/grid-11.png" alt="">
+                                <p>酒店</p>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./images/grid-12.png" alt="">
+                                <p>电影票</p>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="float_act">
+                        <div class="board_show">
+                            <img src="./uploads/fs_act_lk_img.png" alt="">
+                        </div>
+                        <div class="board_act">
+                            <a href="">
+                                <i class="iconfont icon-close"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 内容 -->
+            <div class="jd_app wrapper">
+                <!-- 京东秒杀 -->
+                <div class="jd_secskill clearfix">
+                    <div class="count_down">
+                        <h2>京东秒杀</h2>
+                        <div class="desc">
+                            <span class="cd_start">16:00</span>
+                            点场&nbsp;距结束
+                        </div>
+                        <div class="cd_field">
+                            <span class="cd_hour">00</span>
+                            <i class="time_split">:</i>
+                            <span class="cd_minute">00</span>
+                            <i class="time_split">:</i>
+                            <span class="cd_second">00</span>
+                        </div>
+                    </div>
+                    <div class="jd_secskill_list">
+                        <div class="jd_secskill_list_view">
+                            <ul class="jd_secskill_list_content">
+                                <li><a href="">
+                                    <img src="./uploads/secskill_icon_1.jpeg" alt="">
+                                    <p>Skechers斯凯奇男女同款复古纯色简约情侣鞋 增高厚底运动休闲鞋11931/52676白色/银色WSL37</p>
+                                    <div class="price">
+                                        <i>¥</i><span>498.00</span>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <img src="./uploads/secskill_icon_2.jpeg" alt="">
+                                    <p>Skechers斯凯奇男女同款复古纯色简约情侣鞋 增高厚底运动休闲鞋11931/52676白色/银色WSL37</p>
+                                    <div class="price">
+                                        <i>¥</i><span>498.00</span>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <img src="./uploads/secskill_icon_3.jpeg" alt="">
+                                    <p>Skechers斯凯奇男女同款复古纯色简约情侣鞋 增高厚底运动休闲鞋11931/52676白色/银色WSL37</p>
+                                    <div class="price">
+                                        <i>¥</i><span>498.00</span>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <img src="./uploads/secskill_icon_4.jpeg" alt="">
+                                    <p>Skechers斯凯奇男女同款复古纯色简约情侣鞋 增高厚底运动休闲鞋11931/52676白色/银色WSL37</p>
+                                    <div class="price">
+                                        <i>¥</i><span>498.00</span>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <img src="./uploads/secskill_icon_5.jpeg" alt="">
+                                    <p>Skechers斯凯奇男女同款复古纯色简约情侣鞋 增高厚底运动休闲鞋11931/52676白色/银色WSL37</p>
+                                    <div class="price">
+                                        <i>¥</i><span>498.00</span>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <img src="./uploads/secskill_icon_6.jpeg" alt="">
+                                    <p>Skechers斯凯奇男女同款复古纯色简约情侣鞋 增高厚底运动休闲鞋11931/52676白色/银色WSL37</p>
+                                    <div class="price">
+                                        <i>¥</i>
+                                        <span>498.00</span>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <img src="./uploads/secskill_icon_7.jpeg" alt="">
+                                    <p>Skechers斯凯奇男女同款复古纯色简约情侣鞋 增高厚底运动休闲鞋11931/52676白色/银色WSL37</p>
+                                    <div class="price">
+                                        <i>¥</i><span>498.00</span>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <img src="./uploads/secskill_icon_8.jpeg" alt="">
+                                    <p>Skechers斯凯奇男女同款复古纯色简约情侣鞋 增高厚底运动休闲鞋11931/52676白色/银色WSL37</p>
+                                    <div class="price">
+                                        <i>¥</i><span>498.00</span>
+                                    </div>
+                                </a></li>
+                            </ul>
+                            <div class="btn_left">
+                                <a href="">
+                                    <i class="iconfont icon-icon-test15"></i>
+                                </a>
+                            </div>
+                            <div class="btn_right">
+                                <a href="">
+                                    <i class="iconfont icon-icon-test17"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 品类秒杀 -->
+                    <div class="type_seckill">
+                        <img src="./uploads/secskill_icon_spec.jpeg" alt="">
+                        <p>手机配件超值秒杀</p>
+                        <b>爆款好物限时直降</b>
+                        <div>
+                            <a href="">品类秒杀<i class="iconfont icon-icon-test17"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- fixed导航栏 -->
+                    <div class="elevator_list">
+                        <ul>
+                            <li><a href="">
+                                京东秒杀
+                            </a></li>
+                            <li><a href="">
+                                特色优选
+                            </a></li>
+                            <li><a href="">
+                                频道广场
+                            </a></li>
+                            <li><a href="">
+                                为你推荐
+                            </a></li>
+                            <li><a href="">
+                                <i class="iconfont icon-icon-test2"></i>
+                                客服
+                            </a></li>
+                            <li><a href="">
+                                <i class="iconfont icon-icon-test6"></i>
+                                反馈
+                            </a></li>
+                        </ul>
+                        <div class="elevator_top">
+                            <a href="">
+                                <i class="iconfont icon-icon-test14"></i>
+                                <span>顶部</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="jd_spec">
+                    <!-- 发现好货 -->
+                    <div class="jd_nice_goods">
+                        <div class="nice_head">
+                            <div class="nice_title">
+                                探索新生活<i class="iconfont icon-icon-test18"></i>
+                            </div>
+                        </div>
+                        <div class="nice_list">
+                            <ul>
+                                <li><a href="">
+                                    <div class="nice_pic">
+                                        <img src="./uploads/nice_goods_icon_1.jpeg" alt="">
+                                    </div>
+                                    <div class="nice_label">
+                                        <p>小米 至尊纪念版 5G手机</p>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <div class="nice_pic">
+                                        <img src="./uploads/nice_goods_icon_2.png" alt="">
+                                    </div>
+                                    <div class="nice_label">
+                                        <p>小米 至尊纪念版 5G手机</p>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <div class="nice_pic">
+                                        <img src="./uploads/nice_goods_icon_3.jpeg" alt="">
+                                    </div>
+                                    <div class="nice_label">
+                                        <p>小米 至尊纪念版 5G手机</p>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <div class="nice_pic">
+                                        <img src="./uploads/nice_goods_icon_4.jpeg" alt="">
+                                    </div>
+                                    <div class="nice_label">
+                                        <p>小米 至尊纪念版 5G手机</p>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <div class="nice_pic">
+                                        <img src="./uploads/nice_goods_icon_5.jpeg" alt="">
+                                    </div>
+                                    <div class="nice_label">
+                                        <p>小米 至尊纪念版 5G手机</p>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <div class="nice_pic">
+                                        <img src="./uploads/nice_goods_icon_6.jpeg" alt="">
+                                    </div>
+                                    <div class="nice_label">
+                                        <p>小米 至尊纪念版 5G手机</p>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <div class="nice_pic">
+                                        <img src="./uploads/nice_goods_icon_7.jpeg" alt="">
+                                    </div>
+                                    <div class="nice_label">
+                                        <p>小米 至尊纪念版 5G手机</p>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <div class="nice_pic">
+                                        <img src="./uploads/nice_goods_icon_8.jpeg" alt="">
+                                    </div>
+                                    <div class="nice_label">
+                                        <p>小米 至尊纪念版 5G手机</p>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <div class="nice_pic">
+                                        <img src="./uploads/nice_goods_icon_9.jpeg" alt="">
+                                    </div>
+                                    <div class="nice_label">
+                                        <p>小米 至尊纪念版 5G手机</p>
+                                    </div>
+                                </a></li>
+                                <li><a href="">
+                                    <div class="nice_pic">
+                                        <img src="./uploads/nice_goods_icon_10.jpeg" alt="">
+                                    </div>
+                                    <div class="nice_label">
+                                        <p>小米 至尊纪念版 5G手机</p>
+                                    </div>
+                                </a></li>
+                            </ul>
+                            <div class="nice_ctrl">
+                                <div class="nice_slider_bg"></div>
+                                <div class="nice_slider_bar_area">
+                                    <div class="nice_slider_bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 每日特价 + 品牌闪购 -->
+                    <div class="jd_special">
+
+                    </div>
+                    <!-- 首发+寻宝+逛店+领券 -->
+                    <div class="jd_core">
+
+                    </div>
+                </div>
+
+                <!-- 频道广场 -->
+                <div class="jd_channels">
+
+                </div>
+
+                <!-- 为你推荐 -->
+                <div class="jd_recommends">
+
+                </div>
+            </div>
+        </div>
+        <!-- 通栏内容 : 底部版权 -->
+        <div class="jd_footer">
+            
+        </div>
+    </div>
+    <!-- html content end -->
+
+    <!-- link javascript -->
+    <script src="./js/index.js"></script>
+</body>
+</html>

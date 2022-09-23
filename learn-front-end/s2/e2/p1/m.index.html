@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="JS基础,WebApis,DOM,BOM,Session">
+    <meta name="description" content="2022前端学习-项目实战练习-S2E2">
+    <title>京东 (practice)</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- link css -->
+    <link rel="stylesheet" href="./lib/icon-font/iconfont.css">
+    <link rel="stylesheet" href="./css/m.index.css">
+</head>
+<body>
+    <!-- 打开京东app -->
+    <div class="jd_top_bar">
+        <div class="close">
+            <a href="">
+                <i class="iconfont icon-close"></i>
+            </a>
+        </div>
+        <div class="logo">
+            <img src="./uploads/m.logo.png" alt="">
+        </div>
+        <div class="tips">
+            打开京东App，购物更轻松
+        </div>
+        <div class="open">
+            <a href="">立即打开</a>
+        </div>
+    </div>
+    <!-- 搜索栏 -->
+    <div class="jd_search_area top_actived">
+        <div class="menu">
+            <a href="">
+                <img src="./uploads/m.search_menu.png" alt="">
+            </a>
+        </div>
+        <div class="search_box">
+            <img src="./uploads/m.jd_text.png" alt="">
+            <div class="split"></div>
+            <i class="iconfont icon-icon-test5"></i>
+            <input type="text" placeholder="MacbookPro">   
+        </div>
+        <div class="login">
+            <a href="">登录</a>
+        </div>
+    </div>
+    <!-- html content start -->
+    <div class="jd_container">
+        <!-- 顶部占位符 -->
+        <div class="jd_top_bar_holder top_actived"></div>
+        <!-- 轮播图 -->
+        <div class="jd_carousel_area">
+            <div class="slider_bg"></div>
+            <div class="carousel">
+                <ul class="carousel_list">
+                    <li><a href="">
+                        <img src="./uploads/m.banner_1.jpg" alt="">
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.banner_2.jpg" alt="">
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.banner_3.jpg" alt="">
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.banner_4.jpg" alt="">
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.banner_5.jpg" alt="">
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.banner_6.jpg" alt="">
+                    </a></li>
+                </ul>
+                <ul class="carousel_points">
+                    <li class="point_focus"></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 京东特产 -->
+        <div class="jd_spec_area">
+            <img class="btn_spec" src="./uploads/m.banner_spec.png" alt="">
+        </div>
+        <!-- 快捷菜单 -->
+        <div class="jd_types_area">
+            <div class="pages">
+                <ul class="btn_list page_1 clearfix">
+                    <li><a href="">
+                        <img src="./uploads/m.icon1.png" alt="">
+                        <span>京东超市</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon2.png" alt="">
+                        <span>数码电器</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon3.png" alt="">
+                        <span>京东信百货</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon4.png" alt="">
+                        <span>京东生鲜</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon5.png" alt="">
+                        <span>京东到家</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon6.png" alt="">
+                        <span>充值缴费</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon7.png" alt="">
+                        <span>附近好店</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon8.png" alt="">
+                        <span>领券</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon9.png" alt="">
+                        <span>领金贴</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon10.png" alt="">
+                        <span>PLUS会员</span>
+                    </a></li>
+                </ul>
+                <ul class="btn_list page_2 clearfix">
+                    <li><a href="">
+                        <img src="./uploads/m.icon11.png" alt="">
+                        <span>京东国际</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon12.png" alt="">
+                        <span>京东拍卖</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon13.png" alt="">
+                        <span>玩3C</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon14.png" alt="">
+                        <span>沃尔玛</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon15.png" alt="">
+                        <span>美妆馆</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon16.png" alt="">
+                        <span>京东旅行</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon17.png" alt="">
+                        <span>拍拍二手</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon18.png" alt="">
+                        <span>潮燃青年</span>
+                    </a></li>
+                    <li><a href="">
+                        <img src="./uploads/m.icon19.png" alt="">
+                        <span>全部</span>
+                    </a></li>
+                </ul>
+            </div>
+            <div class="points">
+                <i class="cur"></i>
+                <i></i>
+            </div>
+        </div>
+        <!-- 京东秒杀 -->
+        <div class="jd_seckill_area">
+
+            <div class="seckill_content">
+                <div class="sec_header">
+                    <h2>京东秒杀</h2>
+                    <div class="desc">
+                        <span class="cd_start">20</span>
+                    </div>
+                    <div class="cd_field">
+                        <span class="cd_hour">00</span>
+                        <i class="time_split">:</i>
+                        <span class="cd_minute">17</span>
+                        <i class="time_split">:</i>
+                        <span class="cd_second">38</span>
+                    </div>
+                    <div class="right">
+                        <span>爆款轮番秒</span>
+                        <i class="iconfont icon-icon-test17"></i>
+                    </div>
+                </div>
+                <div class="sec_list">
+                    <div class="list_view">
+                        <ul class="list">
+                            <li><a href="">
+                                <img src="./uploads/m.seckill_icon1.jpeg" alt="">
+                                <i>¥</i><span>278.9</span>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/m.seckill_icon2.jpeg" alt="">
+                                <i>¥</i><span>278.9</span>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/m.seckill_icon3.jpeg" alt="">
+                                <i>¥</i><span>278.9</span>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/m.seckill_icon4.jpeg" alt="">
+                                <i>¥</i><span>278.9</span>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/m.seckill_icon5.jpeg" alt="">
+                                <i>¥</i><span>278.9</span>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/m.seckill_icon6.jpeg" alt="">
+                                <i>¥</i><span>278.9</span>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/m.seckill_icon7.jpeg" alt="">
+                                <i>¥</i><span>278.9</span>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/m.seckill_icon8.jpeg" alt="">
+                                <i>¥</i><span>278.9</span>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/m.seckill_icon9.jpeg" alt="">
+                                <i>¥</i><span>278.9</span>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/m.seckill_icon10.jpeg" alt="">
+                                <i>¥</i><span>278.9</span>
+                            </a></li>
+                            <li><a href="">
+                                <img src="./uploads/m.seckill_icon11.jpeg" alt="">
+                                <i>¥</i><span>278.9</span>
+                            </a></li>
+                            <li class="list_end">
+                                <i class="iconfont icon-icon-test18"></i>
+                                <b>查看全部</b>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 商品列表 -->
+        <div class="jd_goods_list clearfix">
+            <ul class="left_list">
+                <li>
+                    <a class="goods" href="">
+                        <img src="./uploads/m.list_icon1.jpeg" alt="">
+                        <div class="info">
+                            <h3>海尔（Haier）波轮全自动 家用变频一级节能洗衣机大容量 桶自洁 防缠绕 8公斤直驱变频一级洗衣机</h3>
+                            <!-- <div class="lowest_tag">
+                                <img src="./uploads/m.icon_goods_tag.png" alt="">
+                                <span>30天最低价</span>
+                            </div> -->
+                            <div class="discount">
+                                <div class="price">
+                                    ¥<span>188</span><i>.00</i>
+                                </div>
+                                <!-- <div class="reduction">
+                                    <span>满499减80</span>
+                                </div> -->
+                            </div>
+                            <div class="goods_bottom">
+                                <p class="number"><span>32</span>条评论</p>
+                                <div class="feed_back">看类似</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="goods" href="">
+                        <img src="./uploads/m.list_icon3.jpeg" alt="">
+                        <div class="info">
+                            <h3>海尔（Haier）波轮全自动 家用变频一级节能洗衣机大容量 桶自洁 防缠绕 8公斤直驱变频一级洗衣机</h3>
+                            <div class="lowest_tag">
+                                <img src="./uploads/m.icon_goods_tag.png" alt="">
+                                <span>30天最低价</span>
+                            </div>
+                            <div class="discount">
+                                <div class="price">
+                                    ¥<span>188</span><i>.00</i>
+                                </div>
+                                <!-- <div class="reduction">
+                                    <span>满499减80</span>
+                                </div> -->
+                            </div>
+                            <div class="goods_bottom">
+                                <p class="number"><span>32</span>条评论</p>
+                                <div class="feed_back">看类似</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="goods" href="">
+                        <img src="./uploads/m.list_icon5.jpeg" alt="">
+                        <div class="info">
+                            <h3>海信27英寸显示器 电脑办公商务显示屏 75Hz物理防蓝光护眼认证HDMI接口 IPS技术 广色域窄边框 27N3G </h3>
+                            <!-- <div class="lowest_tag">
+                                <img src="./uploads/m.icon_goods_tag.png" alt="">
+                                <span>30天最低价</span>
+                            </div> -->
+                            <div class="discount">
+                                <div class="price">
+                                    ¥<span>188</span><i>.00</i>
+                                </div>
+                                <div class="reduction">
+                                    <span>满499减80</span>
+                                </div>
+                            </div>
+                            <div class="goods_bottom">
+                                <p class="number"><span>32</span>条评论</p>
+                                <div class="feed_back">看类似</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="goods" href="">
+                        <img src="./uploads/m.list_icon7.jpeg" alt="">
+                        <div class="info">
+                            <h3>海尔（Haier）波轮全自动 家用变频一级节能洗衣机大容量 桶自洁 防缠绕 8公斤直驱变频一级洗衣机</h3>
+                            <div class="lowest_tag">
+                                <img src="./uploads/m.icon_goods_tag.png" alt="">
+                                <span>30天最低价</span>
+                            </div>
+                            <div class="discount">
+                                <div class="price">
+                                    ¥<span>188</span><i>.00</i>
+                                </div>
+                                <!-- <div class="reduction">
+                                    <span>满499减80</span>
+                                </div> -->
+                            </div>
+                            <div class="goods_bottom">
+                                <p class="number"><span>32</span>条评论</p>
+                                <div class="feed_back">看类似</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="right_list">
+                <li>
+                    <a class="goods" href="">
+                        <img src="./uploads/m.list_icon2.jpeg" alt="">
+                        <div class="info">
+                            <h3>海尔（Haier）波轮全自动 家用变频一级节能洗衣机大容量 桶自洁 防缠绕 8公斤直驱变频一级洗衣机</h3>
+                            <div class="lowest_tag">
+                                <img src="./uploads/m.icon_goods_tag.png" alt="">
+                                <span>30天最低价</span>
+                            </div>
+                            <div class="discount">
+                                <div class="price">
+                                    ¥<span>188</span><i>.00</i>
+                                </div>
+                                <div class="reduction">
+                                    <span>满499减80</span>
+                                </div>
+                            </div>
+                            <div class="goods_bottom">
+                                <p class="number"><span>32</span>条评论</p>
+                                <div class="feed_back">看类似</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="goods" href="">
+                        <img src="./uploads/m.list_icon4.png" alt="">
+                        <div class="info">
+                            <h3>海尔（Haier）波轮全自动 家用变频一级节能洗衣机大容量 桶自洁 防缠绕 8公斤直驱变频一级洗衣机</h3>
+                            <div class="lowest_tag">
+                                <img src="./uploads/m.icon_goods_tag.png" alt="">
+                                <span>30天最低价</span>
+                            </div>
+                            <div class="discount">
+                                <div class="price">
+                                    ¥<span>188</span><i>.00</i>
+                                </div>
+                                <div class="reduction">
+                                    <span>满499减80</span>
+                                </div>
+                            </div>
+                            <div class="goods_bottom">
+                                <p class="number"><span>32</span>条评论</p>
+                                <div class="feed_back">看类似</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="goods" href="">
+                        <img src="./uploads/m.list_icon6.jpeg" alt="">
+                        <div class="info">
+                            <h3>海尔（Haier）波轮全自动 家用变频一级节能洗衣机大容量 桶自洁 防缠绕 8公斤直驱变频一级洗衣机</h3>
+                            <div class="lowest_tag">
+                                <img src="./uploads/m.icon_goods_tag.png" alt="">
+                                <span>30天最低价</span>
+                            </div>
+                            <div class="discount">
+                                <div class="price">
+                                    ¥<span>188</span><i>.00</i>
+                                </div>
+                                <div class="reduction">
+                                    <span>满499减80</span>
+                                </div>
+                            </div>
+                            <div class="goods_bottom">
+                                <p class="number"><span>32</span>条评论</p>
+                                <div class="feed_back">看类似</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a class="goods" href="">
+                        <img src="./uploads/m.list_icon8.jpeg" alt="">
+                        <div class="info">
+                            <h3>海尔（Haier）波轮全自动 家用变频一级节能洗衣机大容量 桶自洁 防缠绕 8公斤直驱变频一级洗衣机</h3>
+                            <div class="lowest_tag">
+                                <img src="./uploads/m.icon_goods_tag.png" alt="">
+                                <span>30天最低价</span>
+                            </div>
+                            <div class="discount">
+                                <div class="price">
+                                    ¥<span>188</span><i>.00</i>
+                                </div>
+                                <div class="reduction">
+                                    <span>满499减80</span>
+                                </div>
+                            </div>
+                            <div class="goods_bottom">
+                                <p class="number"><span>32</span>条评论</p>
+                                <div class="feed_back">看类似</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- 底部信息栏 -->
+        <div class="jd_footer">
+            <ul class="user_btns">
+                <li><a href="">
+                    登录
+                </a></li>
+                <li class="list-split"></li>
+                <li><a href="">
+                    注册
+                </a></li>
+                <li class="list-split"></li>
+                <li><a href="">
+                    客户服务
+                </a></li>
+                <li class="list-split"></li>
+                <li><a href="">
+                    返回顶部
+                </a></li>
+            </ul>
+            <ul class="app_ends">
+                <li><a href="">
+                    <!-- 客户端 -->
+                    <img src="./uploads/m.icon_ends1.png" alt="">
+                </a></li>
+                <li><a href="">
+                    <!-- 国际版 -->
+                    <img src="./uploads/m.icon_ends2.png" alt="">
+                </a></li>
+                <li><a href="">
+                    <!-- 电脑版 -->
+                    <img src="./uploads/m.icon_ends3.png" alt="">
+                </a></li>
+            </ul>
+            <div class="copyright">
+                Copyright © 2004-2020 京东JD.com 版权所有
+            </div>
+        </div>
+    </div>
+    
+    <!-- 返回顶部 -->
+    <div class="jd_go_top">
+        <img src="./uploads/m.icon_go_top.png" alt="">
+    </div>
+    <!-- 打开京东app -->
+    <div class="jd_open_app">
+        <ul class="texts">
+            <li>打开京东APP</li>
+            <li>购物更轻松</li>
+        </ul>
+    </div>
+    <!-- 底部菜单栏 -->
+    <div class="jd_menus">
+        <div class="jd_menu menu_home">
+            <img src="./uploads/m.tab1_on.png" alt="">
+            <!-- <a href="">首页</a> -->
+        </div>
+        <div class="jd_menu menu_category">
+            <img src="./uploads/m.tab2_off.png" alt="">
+            <!-- <a href="">分类</a> -->
+        </div>
+        <div class="jd_menu menu_enjoy">
+            <img src="./uploads/m.tab3_off.png" alt="">
+            <!-- <a href="">京喜</a> -->
+        </div>
+        <div class="jd_menu menu_cart">
+            <img src="./uploads/m.tab4_off.png" alt="">
+            <!-- <a href="">购物车</a> -->
+        </div>
+        <div class="jd_menu menu_user">
+            <img src="./uploads/m.tab5_off.png" alt="">
+            <!-- <a href="">未登录</a> -->
+        </div>
+    </div>
+    <!-- html content end -->
+
+    <!-- link javascript -->
+    <script src="./js/m.index.js"></script>
+</body>
+</html>
