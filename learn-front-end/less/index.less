@@ -167,6 +167,10 @@ ol {
                             font-weight: 400;
                             font-size: 13 * @vw;
                             color: #000;
+                    
+                            &.active {
+                                color: #ff7f2a;
+                            }
                         }
                     }
 
@@ -181,6 +185,7 @@ ol {
                             border-radius: 6 * @vw;
 
                             transition: all 0.15s ease;
+                            vertical-align: middle;
 
                             &:hover {
                                 transform: translateY(-1 * @vw);
