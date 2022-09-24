@@ -899,3 +899,15 @@ input:focus-visible {
   height: 570px;
   background-color: white;
 }
+/* for test */
+.sample_div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 64px;
+  text-align: center;
+  color: #999;
+}
+.sample_div:nth-child(2n) {
+  background-color: #f7f7f7 !important;
+}
