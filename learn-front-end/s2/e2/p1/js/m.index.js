@@ -16,6 +16,8 @@
     // elements
     var searchElement;
     var backtopElement;
+    var listElement;
+    var ctrlElement;
     // 
     var onSrolledState;
     var scrolledOffTop;
@@ -27,12 +29,16 @@
         searchElement = document.querySelector('.jd_search_area'); // 搜索栏
         backtopElement = document.querySelector('.jd_go_top'); // 返回顶部
         backtopElement.addEventListener('click', onclick_back_to_top);
+        listElement = document.querySelector('.carousel_list');
+        ctrlElement = document.querySelector('.carousel_points');
         // 初始位置为0
         var gotopElement = document.querySelector('.jd_go_top');
         gotopElement.style.display = 'none';
         // 状态查询
         var needShow = localStorage.getItem(skipOpenWithAppKey) !== '1';
         refresh_content_open_with_app(needShow);
+        // 轮播图
+        handle_carousel();
         // init done
         inited = true;
 
@@ -130,6 +136,128 @@
 
     function clientHeight() {
         return document.documentElement.clientHeight;
+    }
+
+    // init carousel 轮播图
+    function handle_carousel() {
+
+        // 实际元素个数
+        var list_count = listElement.children.length;
+
+        // 初始化元素节点
+        var clonedFirst = listElement.children[0].cloneNode(true);
+        var clonedLast = listElement.children[list_count - 1].cloneNode(true);
+        listElement.insertBefore(clonedLast, listElement.children[0]);
+        listElement.appendChild(clonedFirst);
+
+        // 初始化控制节点
+        var points_count = ctrlElement.children.length;
+        var first_point = ctrlElement.children[0];
+
+        for (var i = 0; i < points_count; i++) {
+            var item = ctrlElement.children[i];
+            item.display = 'none';
+            item.classList.remove('point_focus');
+        }
+        for (var i = 0; i < list_count; i++) {
+            var item;
+            if (i < points_count) {
+                item = first_point.cloneNode(true);
+                ctrlElement.appendChild(item);
+            } else {
+                item = ctrlElement.children[i];
+            }            
+            item.display = 'block';
+        }
+        
+        // 位置刷新
+        listElement.style.left = '-100%';
+        first_point.classList.add('point_focus');
+
+        // 自动播放
+        listElement.anim_pos = 0;
+        listElement.anim_cnt = list_count;
+        listElement.anim_play = setInterval(play_carousel_anim, 6000);
+
+        // 触摸暂停
+        listElement.addEventListener('touchstart', play_drag_carousel);
+    }
+
+    // 更新轮播图控制点
+    function update_carousel_points() {
+        for (var i = 0; i < listElement.anim_cnt; i++) {
+            ctrlElement.children[i].classList.remove('point_focus');
+        }
+        ctrlElement.children[listElement.anim_pos].classList.add('point_focus');
+    }
+
+    function restart_carousel_anim() {
+        listElement.anim_play = setInterval(play_carousel_anim, 6000);
+    }
+
+    function stop_carousel_anim() {
+        
+        clearInterval(listElement.anim_play);
+        clearInterval(listElement.trs_method);
+    }
+
+    // 轮播图自动播放
+    function play_carousel_anim() {
+
+        transition_curve(listElement, 500,
+            // update
+            function(y) {
+                var pos = listElement.anim_pos + 1 + y;
+                listElement.style.left = '-' + (pos * 100) + '%';
+            },
+            // end
+            function() {
+                listElement.anim_pos++;
+
+                //  -1 [ 0 1 2 .... cnt-1 ] cnt
+                if (listElement.anim_pos == listElement.anim_cnt) {
+                    listElement.anim_pos = 0;
+                }
+
+                update_carousel_points();
+            });
+    }
+
+    // 拖拽轮播图
+    function play_drag_carousel(e) {
+
+        stop_carousel_anim();
+
+        listElement.addEventListener('touchend', function() {
+
+            restart_carousel_anim();
+
+        });
+    }
+
+    // duration : ms
+    // on_update : function(value)
+    // on_end : end of transition
+    function transition_curve(obj, duration, on_update, on_end) {
+
+        clearInterval(obj.trs_method);
+
+        obj.trs_time = 0;
+        obj.trs_method = setInterval(function() {
+
+            obj.trs_time = Math.min(obj.trs_time + 16, duration);
+            var y = obj.trs_time / duration;
+
+            if (on_update) {
+                on_update(y);
+            }
+                
+            if (y === 1) {
+                if (on_end) on_end();
+                clearInterval(obj.trs_method);
+            }
+
+        }, 16);
     }
 
 }());
