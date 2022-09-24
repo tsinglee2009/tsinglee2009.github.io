@@ -149,11 +149,11 @@ input:focus-visible {
   height: 90%;
   margin: 0 4vw 0 2.66666667vw;
   vertical-align: middle;
-  font-size: 3.2px;
+  font-size: 3.2vw;
   background-color: transparent;
 }
 .jd_search_area .search_box input::placeholder {
-  font-size: 3.2px;
+  font-size: 3.2vw;
   color: #999;
 }
 .jd_search_area .login {
@@ -528,7 +528,7 @@ input:focus-visible {
   background-color: #fff;
   border-top: 1px solid #ddd;
   text-align: center;
-  font-size: 14px;
+  font-size: 3.73333333vw;
 }
 .jd_container .jd_footer .user_btns {
   display: flex;
