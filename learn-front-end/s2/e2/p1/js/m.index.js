@@ -136,7 +136,7 @@
     }
 
     function scrollTop() {
-        return document.documentElement.scrollTop;
+        return document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop || 0;
     }
 
     function clientHeight() {
@@ -266,47 +266,6 @@
                     play_carousel_anim(restart_carousel_anim);
                 }
             });
-
-        // listElement.addEventListener('touchstart', play_drag_carousel, false);
-    }
-
-    // 拖拽轮播图
-    function play_drag_carousel(e) {
-
-        console.log('-- touchstart ' + e.changedTouches[0].clientX);
-        e.stopPropagation();
-        e.preventDefault();
-        
-        this.touch_enabled = true;
-        this.drag_posx = e.changedTouches[0].clientX;
-        stop_carousel_anim();
-
-        listElement.addEventListener('touchend', function(e) {
-
-            console.log('\ttouchend ' + e.changedTouches[0].clientX);
-            e.stopPropagation();
-            e.preventDefault();
-
-            if (this.touch_enabled) {
-
-                var offset = e.changedTouches[0].clientX - this.drag_posx;
-                this.drag_posx = e.changedTouches[0].clientX;
-    
-                if (offset < -0.1 * clientWidth()) {
-                    console.log('左滑动')
-                    play_carousel_anim(restart_carousel_anim);
-                } else if (offset > 0.1 * clientWidth()) {
-                    console.log('右滑动')
-                    play_carousel_anim_backward(restart_carousel_anim);
-                } else {
-                    update_carousel_points(listElement.anim_pos);
-                    restart_carousel_anim();
-                }
-            }
-            
-            this.touch_enabled = false;
-
-        }, false);
     }
 
     // 更新轮播图控制点

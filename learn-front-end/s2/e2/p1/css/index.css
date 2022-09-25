@@ -325,9 +325,6 @@ input:focus-visible {
   left: 0;
   opacity: 1;
 }
-.jd_container .jd_main .jd_groups .wrapper .jd_carousel .carousel_content_list li:nth-child(n+4) {
-  display: none;
-}
 .jd_container .jd_main .jd_groups .wrapper .jd_carousel .carousel_control_list {
   position: absolute;
   bottom: 20px;
@@ -563,13 +560,15 @@ input:focus-visible {
 }
 .jd_container .jd_main .jd_groups .wrapper .float_act .board_act {
   display: inline-block;
+  height: 470px;
+  width: 790px;
   vertical-align: middle;
 }
 .jd_container .jd_main .jd_groups .wrapper .float_act .board_act a {
   position: relative;
-  display: none;
-  height: 470px;
-  width: 790px;
+  display: block;
+  width: 100%;
+  height: 100%;
   background-image: url('../uploads/fs_act_banner_lk.jpeg');
 }
 .jd_container .jd_main .jd_groups .wrapper .float_act .board_act a .iconfont {

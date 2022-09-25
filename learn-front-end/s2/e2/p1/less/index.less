@@ -434,10 +434,6 @@ input {
                             top: 0;
                             left: 0;
                             opacity: 1;
-
-                            &:nth-child(n+4) {
-                                display: none;
-                            }
                         }
                     }
 
@@ -758,14 +754,16 @@ input {
                     .board_act {
 
                         display: inline-block;
+                        height: 470px;
+                        width: 790px;
 
                         vertical-align: middle;
 
                         a {
                             position: relative;
-                            display: none;
-                            height: 470px;
-                            width: 790px;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
                             background-image: url('../uploads/fs_act_banner_lk.jpeg');
 
                             .iconfont {
