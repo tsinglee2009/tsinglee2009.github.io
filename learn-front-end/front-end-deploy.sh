@@ -4,12 +4,21 @@
 file_cfg="$0.cfg"
 
 # 当前执行目录
-dir_src=`pwd`
-dir_src="${dir_src//\\//}"	# ensure '\' is '/'
+arg1=$1
+
+if [ "${arg1}" = "" ] || [ -z "${arg1}" ] ; then
+	dir_src=`pwd`
+	dir_src="${dir_src//\\//}"	# ensure '\' is '/'
+else
+	dir_src="${arg1//\\//}"	# ensure '\' is '/'
+	cd "${dir_src}"
+fi
 
 echo ''
 echo '> shell file path' : $0
 echo '> current workspace path' : ${dir_src}
+
+exit
 
 # 检查是否为目标类型文件夹
 dst_folder=`echo "${dir_src}" | egrep -o "heima2022.*"`
