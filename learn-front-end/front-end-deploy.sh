@@ -18,8 +18,6 @@ echo ''
 echo '> shell file path' : $0
 echo '> current workspace path' : ${dir_src}
 
-exit
-
 # 检查是否为目标类型文件夹
 dst_folder=`echo "${dir_src}" | egrep -o "heima2022.*"`
 
