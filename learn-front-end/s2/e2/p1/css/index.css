@@ -152,11 +152,29 @@ input:focus-visible {
   font-size: 0;
   background-image: url('../images/logo.png');
 }
+.jd_container .jd_main .jd_header .wrapper .jd_search .top_area {
+  position: relative;
+}
+.jd_container .jd_main .jd_header .wrapper .jd_search .top_area .search_logo {
+  position: relative;
+  display: inline-block;
+  width: 125px;
+  height: 40px;
+  font-size: 0;
+  vertical-align: middle;
+}
+.jd_container .jd_main .jd_header .wrapper .jd_search .top_area .search_logo .search_logo_link {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: url(../images/logo.png) no-repeat;
+  background-position: 0 -120px;
+}
 .jd_container .jd_main .jd_header .wrapper .jd_search .top_area .input_field {
   position: relative;
   display: inline-block;
   margin-top: 15px;
-  margin-left: 260px;
+  margin-left: 135px;
   width: 550px;
   height: 36px;
   border: 2px solid #e82124;
@@ -232,6 +250,21 @@ input:focus-visible {
 }
 .jd_container .jd_main .jd_header .wrapper .jd_search .top_area .cart_field .btn_cart:hover {
   border: 1px solid #e82124;
+}
+.jd_container .jd_main .jd_header .wrapper .jd_search .top_area.pin_top {
+  z-index: 999;
+  position: fixed;
+  top: -8px;
+  left: 0;
+  width: 100%;
+  padding-left: calc(50% - 595px);
+  padding-right: calc(50% - 595px);
+  padding-bottom: 2px;
+  background-color: #fff;
+  border-bottom: 2px solid #e82124;
+}
+.jd_container .jd_main .jd_header .wrapper .jd_search .top_area.pin_top .search_logo_link {
+  display: block;
 }
 .jd_container .jd_main .jd_header .wrapper .jd_search .jd_reco_list {
   margin-left: 260px;
@@ -635,6 +668,9 @@ input:focus-visible {
   overflow: hidden;
 }
 .jd_container .jd_main .jd_app .jd_secskill .jd_secskill_list .jd_secskill_list_view ul {
+  position: absolute;
+  top: 30px;
+  left: 0;
   width: 1600px;
   height: 200px;
 }
@@ -793,6 +829,15 @@ input:focus-visible {
 .jd_container .jd_main .jd_app .jd_secskill .elevator_list .elevator_top a {
   height: 60px;
 }
+.jd_container .jd_main .jd_app .jd_secskill .elevator_list.pin_top {
+  z-index: 999;
+  position: fixed;
+  top: 70px;
+  left: calc(50% + 617px);
+}
+.jd_container .jd_main .jd_app .jd_secskill .elevator_list.pin_top .elevator_top {
+  display: block;
+}
 .jd_container .jd_main .jd_app .jd_spec .jd_nice_goods {
   position: relative;
   height: 260px;
@@ -824,23 +869,26 @@ input:focus-visible {
   height: 260px;
   overflow: hidden;
 }
-.jd_container .jd_main .jd_app .jd_spec .jd_nice_goods .nice_list ul {
+.jd_container .jd_main .jd_app .jd_spec .jd_nice_goods .nice_list .nice_list_content {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 2000px;
   height: 100%;
   padding: 30px 0;
 }
-.jd_container .jd_main .jd_app .jd_spec .jd_nice_goods .nice_list ul li {
+.jd_container .jd_main .jd_app .jd_spec .jd_nice_goods .nice_list .nice_list_content li {
   position: relative;
   float: left;
   width: 198px;
   height: 200px;
   text-align: center;
 }
-.jd_container .jd_main .jd_app .jd_spec .jd_nice_goods .nice_list ul li .nice_label {
+.jd_container .jd_main .jd_app .jd_spec .jd_nice_goods .nice_list .nice_list_content li .nice_label {
   width: 100%;
   padding: 0 25px;
 }
-.jd_container .jd_main .jd_app .jd_spec .jd_nice_goods .nice_list ul li .nice_label p {
+.jd_container .jd_main .jd_app .jd_spec .jd_nice_goods .nice_list .nice_list_content li .nice_label p {
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
