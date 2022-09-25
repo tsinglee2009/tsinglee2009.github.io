@@ -138,6 +138,10 @@
         return document.documentElement.clientHeight;
     }
 
+    function clientWidth() {
+        return document.documentElement.clientWidth;
+    }
+
     // init carousel 轮播图
     function handle_carousel() {
 
@@ -177,62 +181,110 @@
         // 自动播放
         listElement.anim_pos = 0;
         listElement.anim_cnt = list_count;
-        listElement.anim_play = setInterval(play_carousel_anim, 6000);
+        restart_carousel_anim();
 
         // 触摸暂停
-        listElement.addEventListener('touchstart', play_drag_carousel);
+        listElement.addEventListener('touchstart', play_drag_carousel, false);
     }
 
     // 更新轮播图控制点
-    function update_carousel_points() {
+    function update_carousel_points(focus_pos) {
         for (var i = 0; i < listElement.anim_cnt; i++) {
             ctrlElement.children[i].classList.remove('point_focus');
         }
-        ctrlElement.children[listElement.anim_pos].classList.add('point_focus');
+        ctrlElement.children[focus_pos].classList.add('point_focus');
     }
 
     function restart_carousel_anim() {
-        listElement.anim_play = setInterval(play_carousel_anim, 6000);
+        stop_carousel_anim();
+        listElement.anim_play = setInterval(play_carousel_anim, 3000);
     }
 
     function stop_carousel_anim() {
-        
-        clearInterval(listElement.anim_play);
         clearInterval(listElement.trs_method);
+        clearInterval(listElement.anim_play);
     }
 
     // 轮播图自动播放
-    function play_carousel_anim() {
+    function play_carousel_anim(callback) {
 
-        transition_curve(listElement, 500,
+        update_carousel_points((listElement.anim_pos + 1) % listElement.anim_cnt);
+
+        transition_curve(listElement, 200,
             // update
             function(y) {
                 var pos = listElement.anim_pos + 1 + y;
-                listElement.style.left = '-' + (pos * 100) + '%';
+                listElement.style.left = (pos * -100) + '%';
             },
             // end
             function() {
                 listElement.anim_pos++;
-
                 //  -1 [ 0 1 2 .... cnt-1 ] cnt
                 if (listElement.anim_pos == listElement.anim_cnt) {
                     listElement.anim_pos = 0;
                 }
 
-                update_carousel_points();
+                if (callback) callback();
+            });
+    }
+
+    function play_carousel_anim_backward(callback) {
+
+        update_carousel_points((listElement.anim_pos - 1 + listElement.anim_cnt) % listElement.anim_cnt);
+
+        transition_curve(listElement, 200,
+            // update
+            function(y) {
+                var pos = listElement.anim_pos + 1 - y;
+                listElement.style.left = (pos * -100) + '%';
+            },
+            // end
+            function() {
+                //  -1 [ 0 1 2 .... cnt-1 ] cnt
+                listElement.anim_pos = (listElement.anim_pos - 1 + listElement.anim_cnt) % listElement.anim_cnt;
+
+                if (callback) callback();
             });
     }
 
     // 拖拽轮播图
     function play_drag_carousel(e) {
 
+        console.log('-- touchstart ' + e.changedTouches[0].clientX);
+        e.stopPropagation();
+        e.preventDefault();
+        
+        this.touch_enabled = true;
+        this.drag_posx = e.changedTouches[0].clientX;
         stop_carousel_anim();
 
-        listElement.addEventListener('touchend', function() {
+        listElement.addEventListener('touchend', function(e) {
 
-            restart_carousel_anim();
+            console.log('\ttouchend ' + e.changedTouches[0].clientX);
+            e.stopPropagation();
+            e.preventDefault();
 
-        });
+            if (this.touch_enabled) {
+
+                var offset = e.changedTouches[0].clientX - this.drag_posx;
+                this.drag_posx = e.changedTouches[0].clientX;
+    
+                if (offset < -0.1 * clientWidth()) {
+                    console.log('左滑动')
+                    play_carousel_anim(restart_carousel_anim);
+                } else if (offset > 0.1 * clientWidth()) {
+                    console.log('右滑动')
+                    play_carousel_anim_backward(restart_carousel_anim);
+                }
+                else {
+                    update_carousel_points(listElement.anim_pos);
+                    restart_carousel_anim();
+                }
+            }
+            
+            this.touch_enabled = false;
+
+        }, false);
     }
 
     // duration : ms
@@ -249,12 +301,13 @@
             var y = obj.trs_time / duration;
 
             if (on_update) {
+                // curve is linear, so on_update(y)
                 on_update(y);
             }
-                
+            
             if (y === 1) {
-                if (on_end) on_end();
                 clearInterval(obj.trs_method);
+                if (on_end) on_end();
             }
 
         }, 16);
