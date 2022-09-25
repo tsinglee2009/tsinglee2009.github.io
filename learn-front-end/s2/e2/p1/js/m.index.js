@@ -18,6 +18,7 @@
     var backtopElement;
     var listElement;
     var ctrlElement;
+    var seckillElement;
     // 
     var onSrolledState;
     var scrolledOffTop;
@@ -39,6 +40,10 @@
         refresh_content_open_with_app(needShow);
         // 轮播图
         handle_carousel();
+        // 快捷列表
+        handle_types_list();
+        // 京东秒杀
+        hanlde_seckill();
         // init done
         inited = true;
 
@@ -142,6 +147,70 @@
         return document.documentElement.clientWidth;
     }
 
+    // 初始化快捷列表
+    function handle_types_list() {
+
+        var parentElement = document.querySelector('.jd_types_area');
+
+        var list_pages = parentElement.querySelector('.pages');
+        list_pages.list_pos = 0;
+        list_pages.list_cnt = list_pages.children.length;
+
+        var list_ctrl = parentElement.querySelector('.points');
+        for (var i = 0; i < list_ctrl.children.length; i++) {
+            list_ctrl.children[i].style.display = 'none'
+        }
+        for (var i = 0; i < list_pages.list_cnt; i++) {
+            if (i < list_ctrl.children.length) {
+                list_ctrl.children[i].style.display = 'inline-block'
+            } else {
+                var cloned = list_ctrl.children[0].cloneNode(true);
+                list_ctrl.appendChild(cloned);
+            }
+        }
+
+        list_pages.refresh_ctrl = function(pos) {
+            var list_ctrl = parentElement.querySelector('.points');
+            for (var i = 0; i < list_pages.list_cnt; i++) {
+                var item = list_ctrl.children[i];
+                item.classList.remove('cur');
+                if (i == pos) item.classList.add('cur');
+            }
+        }
+        list_pages.refresh_ctrl(list_pages.list_pos);
+        
+        attach_drag_handler(list_pages, clientWidth() * .1,
+            // on start drag
+            // function() {
+                
+            // },
+            null,
+            // on end drag
+            function(dir) {
+
+                if (dir == 0) {
+                    
+                } else if (dir > 0) {
+
+                    if (list_pages.list_pos > 0) {
+
+                        list_pages.list_pos--;
+                        list_pages.style.left = list_pages.list_pos * -100 + '%';
+                        list_pages.refresh_ctrl(list_pages.list_pos);
+                    }
+
+                } else {
+
+                    if (list_pages.list_pos < list_pages.list_cnt - 1) {
+
+                        list_pages.list_pos++;
+                        list_pages.style.left = list_pages.list_pos * -100 + '%';
+                        list_pages.refresh_ctrl(list_pages.list_pos);
+                    }
+                }
+            });
+    }
+
     // init carousel 轮播图
     function handle_carousel() {
 
@@ -155,36 +224,89 @@
         listElement.appendChild(clonedFirst);
 
         // 初始化控制节点
-        var points_count = ctrlElement.children.length;
-        var first_point = ctrlElement.children[0];
-
-        for (var i = 0; i < points_count; i++) {
+        for (var i = 0; i < ctrlElement.children.length; i++) {
             var item = ctrlElement.children[i];
-            item.display = 'none';
+            item.style.display = 'none';
             item.classList.remove('point_focus');
         }
         for (var i = 0; i < list_count; i++) {
-            var item;
-            if (i < points_count) {
-                item = first_point.cloneNode(true);
-                ctrlElement.appendChild(item);
+
+            if (i < ctrlElement.children.length) {
+                var item = ctrlElement.children[i];
+                item.style.display = 'inline-block';
             } else {
-                item = ctrlElement.children[i];
+                var item = ctrlElement.children[0].cloneNode(true);
+                ctrlElement.appendChild(item);
             }            
-            item.display = 'block';
         }
         
         // 位置刷新
         listElement.style.left = '-100%';
-        first_point.classList.add('point_focus');
+        ctrlElement.children[0].classList.add('point_focus');
 
         // 自动播放
         listElement.anim_pos = 0;
         listElement.anim_cnt = list_count;
         restart_carousel_anim();
 
-        // 触摸暂停
-        listElement.addEventListener('touchstart', play_drag_carousel, false);
+        // 拖拽事件
+        attach_drag_handler(listElement, clientWidth() * 0.1,
+            // on drag start
+            function() {
+                stop_carousel_anim();
+            },
+            // on drag end
+            function(dir) {
+                if (dir == 0) {
+                    update_carousel_points(listElement.anim_pos);
+                    restart_carousel_anim();
+                } else if (dir > 0) {
+                    play_carousel_anim_backward(restart_carousel_anim);
+                } else {
+                    play_carousel_anim(restart_carousel_anim);
+                }
+            });
+
+        // listElement.addEventListener('touchstart', play_drag_carousel, false);
+    }
+
+    // 拖拽轮播图
+    function play_drag_carousel(e) {
+
+        console.log('-- touchstart ' + e.changedTouches[0].clientX);
+        e.stopPropagation();
+        e.preventDefault();
+        
+        this.touch_enabled = true;
+        this.drag_posx = e.changedTouches[0].clientX;
+        stop_carousel_anim();
+
+        listElement.addEventListener('touchend', function(e) {
+
+            console.log('\ttouchend ' + e.changedTouches[0].clientX);
+            e.stopPropagation();
+            e.preventDefault();
+
+            if (this.touch_enabled) {
+
+                var offset = e.changedTouches[0].clientX - this.drag_posx;
+                this.drag_posx = e.changedTouches[0].clientX;
+    
+                if (offset < -0.1 * clientWidth()) {
+                    console.log('左滑动')
+                    play_carousel_anim(restart_carousel_anim);
+                } else if (offset > 0.1 * clientWidth()) {
+                    console.log('右滑动')
+                    play_carousel_anim_backward(restart_carousel_anim);
+                } else {
+                    update_carousel_points(listElement.anim_pos);
+                    restart_carousel_anim();
+                }
+            }
+            
+            this.touch_enabled = false;
+
+        }, false);
     }
 
     // 更新轮播图控制点
@@ -247,46 +369,95 @@
             });
     }
 
-    // 拖拽轮播图
-    function play_drag_carousel(e) {
+    function hanlde_seckill() {
 
-        console.log('-- touchstart ' + e.changedTouches[0].clientX);
-        e.stopPropagation();
-        e.preventDefault();
-        
-        this.touch_enabled = true;
-        this.drag_posx = e.changedTouches[0].clientX;
-        stop_carousel_anim();
+        seckillElement = document.querySelector('.seckill_content');
+        seckillElement.cd_start = seckillElement.querySelector('.cd_start')
+        seckillElement.cd_hour = seckillElement.querySelector('.cd_hour')
+        seckillElement.cd_min = seckillElement.querySelector('.cd_minute')
+        seckillElement.cd_sec = seckillElement.querySelector('.cd_second')
+        seckillElement.cd_zones = [ 20, 16, 14, 12, 0 ] // 秒杀时间段：12:00 16:00 20:00 00:00
+        seckillElement.fresh_method = function() {
 
-        listElement.addEventListener('touchend', function(e) {
+            var date = new Date();
+            var hour = date.getHours();
 
-            console.log('\ttouchend ' + e.changedTouches[0].clientX);
-            e.stopPropagation();
-            e.preventDefault();
+            for (var i = 0; i < seckillElement.cd_zones.length; i++) {
+                var zone = seckillElement.cd_zones[i];
+                if (hour >= zone) {
+                    
+                    var total_hours = i == 0 ? (24 - zone) : (seckillElement.cd_zones[i - 1] - zone);
 
-            if (this.touch_enabled) {
+                    var total_secs = total_hours * 60 * 60;
+                    var elapsed_secs = (hour - zone) * 60 * 60 + date.getMinutes() * 60 + date.getSeconds();
+                    var cd_secs = total_secs - elapsed_secs;
 
-                var offset = e.changedTouches[0].clientX - this.drag_posx;
-                this.drag_posx = e.changedTouches[0].clientX;
-    
-                if (offset < -0.1 * clientWidth()) {
-                    console.log('左滑动')
-                    play_carousel_anim(restart_carousel_anim);
-                } else if (offset > 0.1 * clientWidth()) {
-                    console.log('右滑动')
-                    play_carousel_anim_backward(restart_carousel_anim);
-                }
-                else {
-                    update_carousel_points(listElement.anim_pos);
-                    restart_carousel_anim();
+                    var cd_hour = Math.floor(cd_secs / 3600);
+                    var cd_min = Math.floor(cd_secs / 60) % 60;
+                    var cd_sec = cd_secs % 60;
+
+                    seckillElement.cd_start.innerHTML = zone > 9 ? zone : ('0' + zone);
+                    seckillElement.cd_hour.innerHTML = cd_hour > 9 ? cd_hour : ('0' + cd_hour);
+                    seckillElement.cd_min.innerHTML = cd_min > 9 ? cd_min : ('0' + cd_min);
+                    seckillElement.cd_sec.innerHTML = cd_sec > 9 ? cd_sec : ('0' + cd_sec);
+
+                    break;
                 }
             }
-            
-            this.touch_enabled = false;
-
-        }, false);
+        }
+        seckillElement.fresh_method();
+        setInterval(seckillElement.fresh_method, 1000);
     }
 
+    // drag_method 拖拽事件封装
+    // threshold : 拖拽最小识别距离
+    // on_drag_start : 开始拖拽事件回调
+    // on_drag_end : 结束拖拽事件回调
+    function attach_drag_handler(obj, threshold, on_drag_start, on_drag_end) {
+
+        obj.drag_threshold = Math.max(5, Math.abs(threshold));
+
+        obj.addEventListener('touchstart', function(e) {
+
+            console.log('-- touchstart ' + e.changedTouches[0].clientX);
+            // e.stopPropagation();
+            // e.preventDefault();
+            
+            this.drag_enabled = true;
+            this.drag_posx = e.changedTouches[0].clientX;
+
+            if (on_drag_start) on_drag_start();
+
+            this.addEventListener('touchend', function(e) {
+
+                console.log('\ttouchend ' + e.changedTouches[0].clientX);
+                // e.stopPropagation();
+                // e.preventDefault();
+
+                if (this.drag_enabled) {
+
+                    var offset = e.changedTouches[0].clientX - this.drag_posx;
+                    this.drag_posx = e.changedTouches[0].clientX;
+        
+                    if (offset < - this.drag_threshold) {
+                        console.log('左滑动')
+                        if (on_drag_end) on_drag_end(-1);                        
+                    } else if (offset > this.drag_threshold) {
+                        console.log('右滑动')
+                        if (on_drag_end) on_drag_end(1);
+                    } else {
+                        if (on_drag_end) on_drag_end(0);
+                    }
+                }
+                
+                this.drag_enabled = false;
+
+            }, false);
+
+        })
+    }
+
+    // trs_method 缓动封装
     // duration : ms
     // on_update : function(value)
     // on_end : end of transition
@@ -298,14 +469,14 @@
         obj.trs_method = setInterval(function() {
 
             obj.trs_time = Math.min(obj.trs_time + 16, duration);
-            var y = obj.trs_time / duration;
+            var t = obj.trs_time / duration;
 
             if (on_update) {
-                // curve is linear, so on_update(y)
-                on_update(y);
+                // curve is linear, so on_update(t)
+                on_update(t);
             }
             
-            if (y === 1) {
+            if (t === 1) {
                 clearInterval(obj.trs_method);
                 if (on_end) on_end();
             }
