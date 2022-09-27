@@ -3,6 +3,12 @@
 # shell配置文件
 file_cfg="$0.cfg"
 
+# 区分多平台配置 09/27
+file_cfg_win64="$0.cfg-x"
+if [ -e "${file_cfg_win64}" ]; then
+	file_cfg="${file_cfg_win64}"
+fi
+
 # 当前执行目录
 arg1=$1
 
