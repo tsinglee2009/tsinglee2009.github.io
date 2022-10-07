@@ -16,17 +16,20 @@
         }
         body {
             padding: 1vh;
+            background-color: #333;
+        }
+        .hint {
+            display: inline-block;
+            margin-top: 50vh;
+            margin-left: 50vw;
+            -webkit-transform: translate(-50%, -100%);
+            transform: translate(-50%, -100%);
+            color: #eee;
+            font-size: 5vmin;
         }
     </style>
 </head>
 <body>
-    <br>
-    <h3 style="text-align: center;">see glitch node project</h3>
-    <!-- Set embed page full size -->
-    <script>
-        setTimeout(() => {
-            location.replace('./glitch.html')
-        }, 3000);
-    </script>
+    <div class="hint">See glitch node project</div>
 </body>
 </html>
