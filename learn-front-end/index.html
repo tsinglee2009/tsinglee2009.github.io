@@ -144,7 +144,7 @@
                                     </div>
                                     <div class="practice">
                                         <a href="https://www.yuque.com/tsinglee/learn-front-end/ulgzpf" target="_blank" class="notes active">学习笔记</a>
-                                        <a href="https://tsinglee2009.gitee.io/learn-front-end/s3/e1/p1/glitch.html" target="_blank" class="p1 active">实战项目</a>
+                                        <a href="https://tsinglee2009.gitee.io/learn-front-end/s3/e1/p1/index.html" target="_blank" class="p1 active">实战项目</a>
                                     </div>
                                 </div>
                             </li>
@@ -234,9 +234,37 @@
             <footer>
                 © 2022 - tsinglee2009
                 <a href="../index.html"><img src="favicon.ico" alt=""></a>
-                <a href="https://node-mysql.glitch.me/" target="_blank"><img src="glitch.png"></a>
+                <a href="https://node-express-mysql.glitch.me/" target="_blank"><img src="glitch.png"></a>
             </footer>
         </div>
     </div>
+    <!-- jquery.js -->
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <!-- sync domain -->
+    <script>
+        if (!location.host || location.host.match(/github.io/)) {
+            $(() => {
+                $('a').click((e) => {
+
+                    e.preventDefault()
+
+                    var target = $(e.target)
+                    while(target) {
+                        // console.log(target)
+                        var href = target.attr('href')
+                        // console.log('href : ' + href)
+
+                        if (href) {
+                            href = href.replace(/gitee.io/, 'github.io')
+                            location.assign(href)
+                            break
+                        }
+
+                        target = target.parent()
+                    }
+                })
+            })
+        }
+    </script>
 </body>
 </html>
