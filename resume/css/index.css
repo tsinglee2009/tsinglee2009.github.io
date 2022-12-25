@@ -1,0 +1,209 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul,
+ol {
+  list-style: none;
+}
+.clearfix::before,
+.clearfix::after {
+  content: '';
+  display: block;
+}
+.clearfix::after {
+  clear: both;
+}
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, PingFang SC, Hiragino Sans GB, Microsoft YaHei, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #414a60;
+  background-color: #525659;
+}
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  body {
+    margin: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .new_page {
+    margin-top: 50px !important;
+    page-break-before: always;
+  }
+  .content-wrapper {
+    padding: 65px 40px !important;
+  }
+}
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+}
+.mask .center {
+  margin: 100px auto;
+  width: 300px;
+}
+.mask .center img {
+  width: 300px;
+  display: block;
+}
+.mask .center .ipt {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+.mask .center .ipt input {
+  padding: 5px 8px;
+  font-size: 14px;
+  border: 1px solid #e3e7ed;
+  border-radius: 2px;
+  cursor: text;
+  color: #414a60;
+  background-color: #fff;
+  background-image: none;
+  overflow: visible;
+  outline: 0;
+  transition: border 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.mask .center .ipt input:focus {
+  box-shadow: 0 1px 2px #96ebe4;
+  border-color: #2cd7c8;
+}
+.mask .center .ipt input:hover {
+  border-color: #2cd7c8;
+}
+.mask .center .ipt.type_err input {
+  color: #ec5e08;
+}
+.mask .center .ipt.type_err::after {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 12px;
+  font-style: italic;
+  color: #ec5e08;
+  content: '密码错误';
+}
+.mask .center button {
+  height: 28px;
+  padding: 4px 6px;
+  background-color: #5dd5c8;
+  border-color: #5dd5c8;
+  color: #fff;
+  border-width: 0;
+  border-radius: 2px;
+}
+.mask .center button:hover {
+  background-color: #6adbcf;
+  border-color: #6adbcf;
+}
+.mask .center button:active {
+  box-shadow: 0 0 0 3px #dff7f4;
+}
+#resume-contents {
+  width: 800px;
+  height: 100%;
+  margin: 6px auto;
+}
+.content-wrapper {
+  width: 100%;
+  min-height: 920px;
+  padding: 65px 40px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(60, 60, 60, 0.6);
+}
+.content-wrapper .content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.content-wrapper .content .resume_head {
+  display: flex;
+}
+.content-wrapper .content .resume_head .left {
+  flex: 1;
+}
+.content-wrapper .content .resume_head .left #resume_name {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 15px;
+}
+.content-wrapper .content .resume_head .left span.iconfont {
+  margin-right: 2px;
+}
+.content-wrapper .content .resume_head .left i.space {
+  display: inline-block;
+  width: 12px;
+  height: 14px;
+}
+.content-wrapper .content .resume_head .right img {
+  height: 120px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(60, 60, 60, 0.1);
+}
+.content-wrapper .content .resume_group {
+  margin-top: 16px;
+}
+.content-wrapper .content .resume_group .resume_comp,
+.content-wrapper .content .resume_group .resume_pos,
+.content-wrapper .content .resume_group .resume_proj,
+.content-wrapper .content .resume_group .resume_uni,
+.content-wrapper .content .resume_group .resume_edu,
+.content-wrapper .content .resume_group .resume_major {
+  font-size: 15px;
+  font-weight: 700;
+}
+.content-wrapper .content .resume_group .li_bold {
+  font-weight: 700;
+}
+.content-wrapper .content .resume_group .li_list {
+  padding-left: 16px;
+  list-style: disc;
+}
+.content-wrapper .content .resume_group .group_head {
+  margin-bottom: 10px;
+  height: 30px;
+  background-color: #f1fafa;
+}
+.content-wrapper .content .resume_group .group_head::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 100%;
+  background-color: #007b86;
+  vertical-align: middle;
+}
+.content-wrapper .content .resume_group .group_head span {
+  display: inline-block;
+  margin-top: 4px;
+  margin-left: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #007b86;
+  vertical-align: middle;
+}
+.content-wrapper .content .resume_group .li_head {
+  width: 100%;
+  position: relative;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+.content-wrapper .content .resume_group .li_head span {
+  float: left;
+  margin-right: 24px;
+}
+.content-wrapper .content .resume_group .li_head span.r {
+  float: right;
+  margin-right: 0;
+}
