@@ -5,7 +5,6 @@
    window.addEventListener('load', on_load)
 
    function on_load() {
-        console.log('1111')
         init_adaptation()
         init_mask_field()
    }
