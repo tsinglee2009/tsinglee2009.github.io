@@ -226,6 +226,6 @@ body {
     page-break-before: always;
   }
   .content-wrapper {
-    padding: 65px 40px !important;
+    padding: 65px 40px 0 40px !important;
   }
 }
