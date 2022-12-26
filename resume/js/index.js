@@ -23,7 +23,15 @@
         var btn_view = document.querySelector('#btn_view_resume')
         var input = document.querySelector('#ipt_resume_pwd')
         var ipt = document.querySelector('#ipt')
+
+        // developer mode
+        if (location.protocol === 'file:') {
+            document.querySelector('.mask').style.display = 'none'
+            document.querySelector('.content-wrapper').style.display = 'block'
+            return
+        }
         
+        // on click
         input.addEventListener('click', () => {
             ipt.classList.remove('type_err')
         })

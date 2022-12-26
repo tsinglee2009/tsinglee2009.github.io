@@ -8,6 +8,19 @@ ul,ol {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+    color: #414a60;
+    &:hover {
+        color: #000;
+    }
+}
+
+.icon-x {
+    margin-left: 4px;
+    font-size: 12px;
+}
+
 .clearfix::before,
 .clearfix::after {
     content: '';
@@ -161,6 +174,8 @@ body {
                     height: 120px;
                     border-radius: 12px;
                     box-shadow: 0 2px 8px rgb(60 60 60 / 10%);
+                    // disable drag
+                    -webkit-user-drag: none;
                 }
             }
         }
@@ -287,5 +302,9 @@ body {
     }
     .content-wrapper {
         padding: 65px 40px 0 40px !important;
+    }
+    .icon-x {
+        margin-left: 0;
+        font-size: 0;
     }
 }
