@@ -1,16 +1,14 @@
 ;(function(){
 
-   var is_mobile = isMobile()
-
    window.addEventListener('load', on_load)
 
    function on_load() {
-        init_adaptation()
-        // init_mask_field()
+        // init_adaptation()
+        init_mask_field()
    }
 
    function init_adaptation() {
-        if (is_mobile) {
+        if (isMobile()) {
             var resumme = document.querySelector('#resume-contents')
             var wrapper = document.querySelector('.content-wrapper')
             resumme.style.width = '100%'

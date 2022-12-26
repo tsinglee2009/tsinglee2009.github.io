@@ -25,25 +25,6 @@ body {
     background-color: #525659;
 }
 
-@media print {
-    @page {
-        size: A4;
-        margin: 0;
-    }
-    body {
-        margin: 0;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-    }
-    .new_page {
-        margin-top: 50px !important;
-        page-break-before: always;
-    }
-    .content-wrapper {
-        padding: 65px 40px !important;
-    }
-}
-
 .mask {
 
     position: fixed;
@@ -130,16 +111,18 @@ body {
 // common styles
 
 #resume-contents {
-    width: 800px;
     height: 100%;
+    // @media query
+    width: 800px;
     margin: 6px auto;
 }
 
 .content-wrapper {
     width: 100%;
     min-height: 920px;
-    padding: 65px 40px;
     background-color: #fff;
+    // @media query
+    padding: 65px 40px;
     border-radius: 4px;
     box-shadow: 0 0 10px rgb(60 60 60 / 60%);
 
@@ -269,6 +252,7 @@ body {
     }
 
     .content-wrapper {
+        padding: 22px 15px !important;
         border-radius: 0;
         box-shadow: 0;
     }
@@ -277,5 +261,31 @@ body {
 @media (max-width: 375px) {
     #resume-contents {
         width: 375px;
+        margin: 0;
+    }
+
+    .content-wrapper {
+        padding: 22px 15px !important;
+        border-radius: 0;
+        box-shadow: 0;
+    }
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    body {
+        margin: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .new_page {
+        margin-top: 50px !important;
+        page-break-before: always;
+    }
+    .content-wrapper {
+        padding: 65px 40px !important;
     }
 }
