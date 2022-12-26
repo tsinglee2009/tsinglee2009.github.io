@@ -207,3 +207,18 @@ body {
   float: right;
   margin-right: 0;
 }
+@media (max-width: 819px) {
+  #resume-contents {
+    width: 100%;
+    margin: 0;
+  }
+  .content-wrapper {
+    border-radius: 0;
+    box-shadow: 0;
+  }
+}
+@media (max-width: 375px) {
+  #resume-contents {
+    width: 375px;
+  }
+}
