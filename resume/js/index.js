@@ -6,7 +6,7 @@
 
    function on_load() {
         init_adaptation()
-        init_mask_field()
+        // init_mask_field()
    }
 
    function init_adaptation() {
