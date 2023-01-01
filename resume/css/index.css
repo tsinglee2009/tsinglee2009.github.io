@@ -32,6 +32,10 @@ body {
   line-height: 1.5;
   color: #414a60;
   background-color: #525659;
+  -webkit-text-size-adjust: none ;
+  -moz-text-size-adjust: none ;
+  -ms-text-size-adjust: none ;
+  text-size-adjust: none;
 }
 .mask {
   position: fixed;
