@@ -24,8 +24,27 @@
         var input = document.querySelector('#ipt_resume_pwd')
         var ipt = document.querySelector('#ipt')
 
+        // skip mask viewer
+        var skipMask = false
+        switch(location.search) {
+            case '?k=aws':
+                document.querySelector('#id_search').innerText = '求职意向：Unity/Cocos/前端开发'
+                skipMask = true
+                break;
+            case '?k=tot':
+                document.querySelector('#id_search').innerText = '求职意向：前端开发工程师'
+                skipMask = true
+                break;
+            case '?k=zig':
+                document.querySelector('#id_search').innerText = '求职意向：前端开发工程师'
+                break;
+            //default:
+            //    document.querySelector('#id_search').innerText = '求职意向：前端开发工程师'
+            //    break;
+        }
+
         // developer mode
-        if (location.protocol === 'file:') {
+        if (skipMask && location.protocol === 'file:') {
             document.querySelector('.mask').style.display = 'none'
             document.querySelector('.content-wrapper').style.display = 'block'
             return
