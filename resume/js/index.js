@@ -44,7 +44,7 @@
         }
 
         // developer mode
-        if (skipMask && location.protocol === 'file:') {
+        if (skipMask || location.protocol === 'file:') {
             document.querySelector('.mask').style.display = 'none'
             document.querySelector('.content-wrapper').style.display = 'block'
             return
