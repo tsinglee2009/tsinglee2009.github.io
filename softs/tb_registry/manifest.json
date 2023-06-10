@@ -1,7 +1,7 @@
 {
-  "version": "0.1.1",
+  "version": "0.1.2",
   "files": {
-    "./dist/tb_assistant.exe": "ff450cdb83688ef338cf448dd8ab79296bbad381",
-    "./dist/tb_converter.exe": "71e6e75bb287cfb50bb5efa2989db1f85f2b7459"
+    "./dist/tb_assistant.exe": "dced08ee63a0432d1e562f6e24b77a76a7dd4170",
+    "./dist/tb_converter.exe": "02a6248825a9c9638e51dc89988a785a0c7ccf4d"
   }
 }
